@@ -1,0 +1,36 @@
+<table style="width:100%">
+    <tr>
+        <td style="width:30%">Titel*</td>
+        <td style="width:30%">Start</td>
+        <td style="width:30%">Ende</td>
+    </tr>
+    <tr>
+        <td><div>
+                <input  size = 80% [(ngModel)]="task.name" placeholder={{task.name}}/>
+        </div></td>
+        <td><div>
+            <input size = 80% [(ngModel)]="task.start" placeholder={{task.start}}/>
+        </div></td>
+        <td><div>
+            <input size = 80% [(ngModel)]="task.end" placeholder={{task.end}}/>
+        </div></td>
+    </tr>
+    <br>
+    <tr>
+        <td>Beschreibung*</td>
+        <td>Geschätzter Zeitaufwand</td>
+        <td>Vorherige Aufgabe auswählen</td>
+    </tr>
+
+    <tr>
+        <td rowspan="2"><div>
+            <input  size = 80% style="height=300px" [(ngModel)]="task.description" placeholder={{task.description}}/>
+        </div></td>
+        <td><div>
+            <input size = 80% [(ngModel)]="task.estimated_effort" placeholder={{task.estimated_effort}}/>
+        </div></td>
+        <td><div>
+            <input width = 80%  type=range placeholder=""/>
+        </div></td>
+    </tr>
+</table>
