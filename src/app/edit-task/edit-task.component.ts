@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {Task_Interface} from '../task-interface';
 import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./edit-task.component.css']
 })
 export class EditTaskComponent implements OnInit {
-  task: Task_Interface = {
+  @Input() task: Task_Interface = {
     name: 'Aufgabenname',
     description:  'Aufgabenbeschreibung',
     estimated_effort: '4 Stunden',

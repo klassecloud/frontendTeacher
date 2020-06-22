@@ -2,10 +2,7 @@
     Aufgabenliste
 </mat-toolbar>
 <div class="cardsGrid">
-    <div class="cardsGridItem">
-        <app-task>loading</app-task>
-    </div>
-    <div class="cardsGridItem">
-        <app-task>loading</app-task>
+    <div *ngFor="let t of tasks" class="cardsGridItem">
+        <app-task [task]="t">loading</app-task>
     </div>
 </div>

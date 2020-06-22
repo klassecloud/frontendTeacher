@@ -1,4 +1,4 @@
-export interface Task_Interface {
+export class Task_Interface {
   name: string;
   description: string;
   estimated_effort: string;

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import {Task_Interface} from '../task-interface';
 
 @Component({
   selector: 'app-task',
@@ -7,10 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TaskComponent implements OnInit {
 
-    @Input() title: string = "Title";
-    @Input() subtitle: string = "Subtitle";
-    @Input() content: string = "Content";
+    @Input() task: Task_Interface;
 
+    //title: string = "Title";
+    //subtitle: string = "Subtitle";
+    //content: string = "Content";
 
     constructor() { }
 
@@ -18,6 +20,7 @@ export class TaskComponent implements OnInit {
     }
 
     edit(){
+
     }
 
 }
