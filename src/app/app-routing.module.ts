@@ -6,8 +6,10 @@ import { TaskComponent } from './task/task.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 
 const routes: Routes = [
-{path: '', component: TaskListComponent},
-{path: 'newtask', component: EditTaskComponent}
+{path: '', redirectTo: "tasklist", pathMatch: 'full'},
+{path: 'tasklist', component: TaskListComponent},
+{path: 'newtask', component: EditTaskComponent},
+{path: 'edittask/:id', component: EditTaskComponent},
 ];
 
 @NgModule({

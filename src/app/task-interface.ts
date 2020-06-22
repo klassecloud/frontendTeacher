@@ -1,4 +1,5 @@
 export class Task_Interface {
+  id: number;
   name: string;
   description: string;
   estimated_effort: string;

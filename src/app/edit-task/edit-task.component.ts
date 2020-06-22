@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import {Task_Interface} from '../task-interface';
 import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Tasks } from '../task-data';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-task',
@@ -10,6 +12,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class EditTaskComponent implements OnInit {
   @Input() task: Task_Interface = {
+    id: 0,
     name: 'Aufgabenname',
     description:  'Aufgabenbeschreibung',
     estimated_effort: '4 Stunden',
@@ -48,9 +51,13 @@ export class EditTaskComponent implements OnInit {
       .post(endpoint, formData, { headers: this.headerConf });
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    if(id>0)
+        this.task = Tasks.find(task => task.id === id);
+
   }
   delete() {}
   archive() {}
