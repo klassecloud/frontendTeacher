@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "frontendTeacher"
+    }
+  },
+  "defaultProject": "frontendTeacher",
+  "cli": {
+    "analytics": false
+  }
 }
