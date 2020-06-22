@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css']
+  selector: 'app-task',
+  templateUrl: './task.component.html',
+  styleUrls: ['./task.component.css']
 })
-export class TasksComponent implements OnInit {
+export class TaskComponent implements OnInit {
 
     @Input() title: string = "Title";
     @Input() subtitle: string = "Subtitle";
@@ -18,7 +18,6 @@ export class TasksComponent implements OnInit {
     }
 
     edit(){
-        this.title = "kodas";
     }
 
 }
