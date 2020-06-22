@@ -51,17 +51,17 @@
 
       </div></td>
       <td><div>
-        <input type="file" size = 80% [(ngModel)]="task.materials"/>
+        <input type="file" id="materials" size = 80% (change)="handleFileInput($event.target.files)"/>
       </div></td>
       <td><div>
-        <input type="file" size = 80% [(ngModel)]="task.model_solution"/>
+        <input type="file" id="model_solution" size = 80% [(ngModel)]="task.model_solution"/>
       </div></td>
     </tr>
 
   <br>
   <tr>
     <td>Aufgabe zuweisen</td>
-    <td>Schüle:r</td>
+    <td>Schüler:</td>
   </tr>
 
   <tr>

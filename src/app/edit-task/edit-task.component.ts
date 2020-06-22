@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Task_Interface} from '../task-interface';
+import {Observable} from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-task',
@@ -19,7 +21,34 @@ export class EditTaskComponent implements OnInit {
     materials: undefined,
     model_solution: undefined
   };
-  constructor() { }
+
+  fileToUpload: File = null;
+
+  headerConf;
+
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+  }
+
+  /*
+  uploadFileToActivity() {
+    this.fileUploadService.postFile(this.fileToUpload).subscribe(data => {
+      // do something, if upload success
+    }, error => {
+      console.log(error);
+    });
+  }
+  */
+
+  postFile(fileToUpload: File): Observable<Object> {
+    const endpoint = 'your-destination-url';
+    const formData: FormData = new FormData();
+    formData.append('fileKey', fileToUpload, fileToUpload.name);
+    return this.http
+      .post(endpoint, formData, { headers: this.headerConf });
+  }
+
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
   }
@@ -27,4 +56,5 @@ export class EditTaskComponent implements OnInit {
   archive() {}
   save() {}
   preview() {}
+
 }
