@@ -1,0 +1,8 @@
+<mat-toolbar style="background:rgba(36,219,198);">
+    Aufgabenliste
+</mat-toolbar>
+<div class="cardsGrid">
+    <div *ngFor="let t of tasks" class="cardsGridItem">
+        <app-task [task]="t">loading</app-task>
+    </div>
+</div>
