@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Task_Interface} from '../task-interface';
+import { Tasks } from '../task-data';
 
 import { Router } from '@angular/router';
 
@@ -23,6 +24,10 @@ export class TaskComponent implements OnInit {
 
     edit(){
         this.router.navigateByUrl('/edittask/' + this.task.id);
+    }
+
+    delete(){
+        Tasks.splice(Tasks.indexOf(Tasks.find(task => task.id === this.task.id)),1);
     }
 
 }

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Tasks } from '../task-data';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-task',
@@ -51,7 +52,7 @@ export class EditTaskComponent implements OnInit {
       .post(endpoint, formData, { headers: this.headerConf });
   }
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -61,7 +62,13 @@ export class EditTaskComponent implements OnInit {
   }
   delete() {}
   archive() {}
-  save() {}
+  save() {
+    if(this.task.id == 0){
+        this.task.id = Tasks[Tasks.length-1].id + 1;
+        Tasks.push(this.task);
+    }
+    this.router.navigateByUrl('tasklist');
+  }
   preview() {}
 
 }
