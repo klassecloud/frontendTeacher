@@ -75,6 +75,10 @@
 
 </table>
 
-<button>Vorschau</button>
-<button (click)="save()">Speichern</button>
+<div *ngIf="preview">
+    <button (click)="deactivatePreview()">Vorschau beenden</button><button (click)="save()">Speichern</button>
+    <app-task [task]="task">loading</app-task></div>
+<div *ngIf="!preview"><button (click)="activatePreview()">Vorschau</button><button (click)="save()">Speichern</button></div>
+
+
 
