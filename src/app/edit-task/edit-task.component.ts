@@ -26,6 +26,7 @@ export class EditTaskComponent implements OnInit {
     model_solution: undefined
   };
 
+  preview:Boolean = false;
   fileToUpload: File = null;
 
   headerConf;
@@ -60,6 +61,14 @@ export class EditTaskComponent implements OnInit {
         this.task = Tasks.find(task => task.id === id);
 
   }
+  activatePreview(){
+    this.preview = true;
+  }
+
+  deactivatePreview(){
+    this.preview = false;
+  }
+
   delete() {}
   archive() {}
   save() {
