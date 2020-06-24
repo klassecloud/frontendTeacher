@@ -15,7 +15,7 @@ export class EditTaskComponent implements OnInit {
   @Input() task: Task_Interface = {
     id: 0,
     name: 'Aufgabenname',
-    description:  'Aufgabenbeschreibung',
+    description: 'Aufgabenbeschreibung',
     estimated_effort: '4 Stunden',
     start: new Date(),
     end: new Date(),

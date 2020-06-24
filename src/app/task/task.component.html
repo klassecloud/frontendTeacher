@@ -6,7 +6,15 @@
 
     <mat-card-content style="padding:10px 10px 0px 10px;">
         <p>
-            {{task.description}}
+            <!--{{task.description}}-->
+            <ng-container *ngFor="let mode of stringArray.mode; let i = index">
+                <ng-container *ngIf="mode == 0; else katex">
+                    {{stringArray.text[i]}}
+                </ng-container>
+                <ng-template #katex>
+                    <ng-katex [equation]="stringArray.text[i]"></ng-katex>
+                </ng-template>
+            </ng-container>
         </p>
     </mat-card-content>
     <mat-card-actions>
