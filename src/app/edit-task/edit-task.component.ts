@@ -78,6 +78,5 @@ export class EditTaskComponent implements OnInit {
     }
     this.router.navigateByUrl('tasklist');
   }
-  preview() {}
 
 }
