@@ -34,6 +34,7 @@ export class EditTaskComponent implements OnInit {
 
 
   handleFileInput(filename) {
+    const that = this;
     const fileToUpload = (filename === 'materials') ?
       (document.getElementById('materials') as HTMLInputElement).files :
       (document.getElementById('modelSolution') as HTMLInputElement).files;
@@ -46,7 +47,7 @@ export class EditTaskComponent implements OnInit {
         if (event.type === HttpEventType.UploadProgress) {
           this.percentCompleted = Math.round(100 * event.loaded / event.total);
         } else if (event instanceof HttpResponse) {
-          this.task[filename][file.name] = event.body.link;
+          that.task[filename][file.name] = event.body.link;
         }
       });
     }
