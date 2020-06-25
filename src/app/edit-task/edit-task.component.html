@@ -9,7 +9,7 @@
                 <input  size = 80% [(ngModel)]="task.name" placeholder={{task.name}}/>
         </div></td>
         <td><div>
-            <input size = 80% type='date' [(ngModel)]="task.start" placeholder={{task.start}}/>
+            <input size = 80% type=date [(ngModel)]="task.start" placeholder={{task.start}}/>
         </div></td>
         <td><div>
             <input size = 80% type=date [(ngModel)]="task.end" placeholder={{task.end}}/>
@@ -24,7 +24,7 @@
 
     <tr>
         <td rowspan="2"><div>
-            <input  size = 80% style="height=300px" [(ngModel)]="task.description" placeholder={{task.description}}/>
+          <textarea name="Text1" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
         </div></td>
         <td><div>
             <input size = 80% [(ngModel)]="task.estimated_effort" placeholder={{task.estimated_effort}}/>
