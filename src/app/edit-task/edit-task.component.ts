@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import {Task_Interface} from '../task-interface';
 import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpResponse, HttpEventType } from '@angular/common/http';
 import { Tasks } from '../task-data';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
@@ -22,46 +23,53 @@ export class EditTaskComponent implements OnInit {
     previousTask: undefined,
     allocate: ['9b', '9a', 'Verena Steinmeier'],
     subject: undefined,
-    materials: undefined,
-    model_solution: undefined
+    materials: {},
+    modelSolution: {}
   };
 
-  preview:Boolean = false;
-  fileToUpload: File = null;
+  preview: Boolean = false;
+  url = 'http://file.io'; // 'localhost:3001';
 
-  headerConf;
+  percentCompleted = 0;
 
-  handleFileInput(files: FileList) {
-    this.fileToUpload = files.item(0);
+
+  handleFileInput(filename) {
+    const that = this;
+    const fileToUpload = (filename === 'materials') ?
+      (document.getElementById('materials') as HTMLInputElement).files :
+      (document.getElementById('modelSolution') as HTMLInputElement).files;
+    console.log(fileToUpload);
+    if (fileToUpload.length > 0) {
+      const file = fileToUpload.item(0);
+      const formData = new FormData();
+      formData.append('file', file);
+      this.uploadWithProgress(formData).subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.percentCompleted = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          that.task[filename][file.name] = event.body.link;
+        }
+      });
+    }
   }
 
-  /*
-  uploadFileToActivity() {
-    this.fileUploadService.postFile(this.fileToUpload).subscribe(data => {
-      // do something, if upload success
-    }, error => {
-      console.log(error);
-    });
-  }
-  */
-
-  postFile(fileToUpload: File): Observable<Object> {
-    const endpoint = 'your-destination-url';
-    const formData: FormData = new FormData();
-    formData.append('fileKey', fileToUpload, fileToUpload.name);
-    return this.http
-      .post(endpoint, formData, { headers: this.headerConf });
+  uploadWithProgress(formData: FormData): Observable<any> {
+    const uploadfile = this.http.post(this.url, formData, { observe: 'events',  reportProgress: true });
+    return uploadfile;
   }
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    if(id>0)
+    if (id > 0) {
         this.task = Tasks.find(task => task.id === id);
+    }
 
   }
   activatePreview(){
+    console.log(this.task.materials);
+    console.log(this.task.modelSolution);
     this.preview = true;
   }
 
@@ -72,8 +80,10 @@ export class EditTaskComponent implements OnInit {
   delete() {}
   archive() {}
   save() {
-    if(this.task.id == 0){
-        this.task.id = Tasks[Tasks.length-1].id + 1;
+    this.handleFileInput('materials');
+    this.handleFileInput('modelSolution');
+    if (this.task.id === 0){
+        this.task.id = Tasks[Tasks.length - 1].id + 1;
         Tasks.push(this.task);
     }
     this.router.navigateByUrl('tasklist');

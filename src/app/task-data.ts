@@ -11,8 +11,8 @@ export const Tasks: Task_Interface[] = [
         previousTask: undefined,
         allocate: ['9b', '9a', 'Verena Steinmeier'],
         subject: undefined,
-        materials: undefined,
-        model_solution: undefined
+        materials: {},
+        modelSolution: {}
     },
     {
           id: 2,
@@ -24,8 +24,8 @@ export const Tasks: Task_Interface[] = [
           previousTask: undefined,
           allocate: ['9b', '9a', 'Verena Steinmeier'],
           subject: undefined,
-          materials: undefined,
-          model_solution: undefined
+          materials: {},
+          modelSolution: {}
     },
     {
           id: 3,
@@ -37,8 +37,8 @@ export const Tasks: Task_Interface[] = [
           previousTask: undefined,
           allocate: ['9b', '9a', 'Verena Steinmeier'],
           subject: undefined,
-          materials: undefined,
-          model_solution: undefined
+          materials: {},
+          modelSolution: {}
     },
     {
           id: 4,
@@ -50,8 +50,8 @@ export const Tasks: Task_Interface[] = [
           previousTask: undefined,
           allocate: ['9b', '9a', 'Verena Steinmeier'],
           subject: undefined,
-          materials: undefined,
-          model_solution: undefined
+          materials: {},
+          modelSolution: {}
     },
     {
           id: 5,
@@ -63,7 +63,7 @@ export const Tasks: Task_Interface[] = [
           previousTask: undefined,
           allocate: ['9b', '9a', 'Verena Steinmeier'],
           subject: undefined,
-          materials: undefined,
-          model_solution: undefined
+          materials: {},
+          modelSolution: {}
     }
 ]
