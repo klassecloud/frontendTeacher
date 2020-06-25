@@ -33,18 +33,23 @@ export class EditTaskComponent implements OnInit {
   percentCompleted = 0;
 
 
-  handleFileInput(filename = 'materials') {
-    const fileToUpload = (filename = 'materials') ? (document.getElementById('materials') as HTMLInputElement).files : (document.getElementById('modelSolution') as HTMLInputElement).files;
-    const file = fileToUpload.item(0);
-    const formData = new FormData();
-    formData.append('file', file);
-    this.uploadWithProgress(formData).subscribe(event => {
-      if (event.type === HttpEventType.UploadProgress) {
-        this.percentCompleted = Math.round(100 * event.loaded / event.total);
-      } else if (event instanceof HttpResponse) {
-        this.task[filename][file.name] = event.body.link;
-      }
-    });
+  handleFileInput(filename) {
+    const fileToUpload = (filename === 'materials') ?
+      (document.getElementById('materials') as HTMLInputElement).files :
+      (document.getElementById('modelSolution') as HTMLInputElement).files;
+    console.log(fileToUpload);
+    if (fileToUpload.length > 0) {
+      const file = fileToUpload.item(0);
+      const formData = new FormData();
+      formData.append('file', file);
+      this.uploadWithProgress(formData).subscribe(event => {
+        if (event.type === HttpEventType.UploadProgress) {
+          this.percentCompleted = Math.round(100 * event.loaded / event.total);
+        } else if (event instanceof HttpResponse) {
+          this.task[filename][file.name] = event.body.link;
+        }
+      });
+    }
   }
 
   uploadWithProgress(formData: FormData): Observable<any> {
