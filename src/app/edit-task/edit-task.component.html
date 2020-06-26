@@ -24,7 +24,13 @@
 
     <tr>
         <td rowspan="2"><div>
-            <input  size = 80% style="height=300px" [(ngModel)]="task.description" placeholder={{task.description}}/>
+            <input id="input" size = 80% style="height=300px" [(ngModel)]="task.description" placeholder={{task.description}}/>
+            <br>
+            <button (click)="showKatex()">Formel eingeben</button>
+            <br><br>
+            <div *ngIf="showKatexInput">
+                <app-katex-input [taskToPaste]="task" [inputToPaste]="input"></app-katex-input>
+            </div>
         </div></td>
         <td><div>
             <input size = 80% [(ngModel)]="task.estimated_effort" placeholder={{task.estimated_effort}}/>

@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.css']
 })
+
 export class EditTaskComponent implements OnInit {
   @Input() task: Task_Interface = {
     id: 0,
@@ -27,6 +28,10 @@ export class EditTaskComponent implements OnInit {
   };
 
   fileToUpload: File = null;
+
+  showKatexInput: boolean = false;
+
+  input: HTMLInputElement;
 
   headerConf;
 
@@ -55,6 +60,7 @@ export class EditTaskComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
+    this.input = document.getElementById("input") as HTMLInputElement;
     const id = +this.route.snapshot.paramMap.get('id');
     if(id>0)
         this.task = Tasks.find(task => task.id === id);
@@ -70,5 +76,9 @@ export class EditTaskComponent implements OnInit {
     this.router.navigateByUrl('tasklist');
   }
   preview() {}
+
+  showKatex() {
+    this.showKatexInput ? this.showKatexInput=false : this.showKatexInput=true;
+  }
 
 }
