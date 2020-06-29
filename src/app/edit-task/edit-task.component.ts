@@ -55,6 +55,7 @@ export class EditTaskComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
+    // get the task with id from the url from our task list
     const id = +this.route.snapshot.paramMap.get('id');
     if(id>0)
         this.task = Tasks.find(task => task.id === id);
@@ -64,7 +65,9 @@ export class EditTaskComponent implements OnInit {
   archive() {}
   save() {
     if(this.task.id == 0){
-        this.task.id = Tasks[Tasks.length-1].id + 1;
+        if(Tasks.length>0)
+            this.task.id = Tasks[Tasks.length-1].id + 1;
+        else this.task.id = 1;
         Tasks.push(this.task);
     }
     this.router.navigateByUrl('tasklist');

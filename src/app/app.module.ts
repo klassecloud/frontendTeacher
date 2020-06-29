@@ -17,6 +17,7 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { FormsModule } from '@angular/forms';
 import { KatexModule } from 'ng-katex';
+import { TaskDetailsComponent } from './task-details/task-details.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { KatexModule } from 'ng-katex';
     AppComponent,
     TaskComponent,
     TaskListComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    TaskDetailsComponent
   ],
   imports: [
     BrowserModule,
