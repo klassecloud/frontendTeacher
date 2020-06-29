@@ -57,7 +57,7 @@ export class TaskComponent implements OnInit {
 
                 descriptionString = substring.slice(newIndex+1);
                 index = descriptionString.indexOf("\\formel{");
-            }while(index > 0)
+            }while(index > -1)
 
              if(descriptionString.length > 0)
                 stringArray.text.push(descriptionString);
