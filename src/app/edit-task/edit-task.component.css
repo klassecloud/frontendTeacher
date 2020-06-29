@@ -28,9 +28,13 @@
   caption-side: top;
 }
 
-.input-area {
+.flex-container {
   /*grid-area: auto;*/
   display: flex;
   flex-wrap: wrap;
   flex-grow: initial;
+}
+
+.students {
+  color: orange;
 }

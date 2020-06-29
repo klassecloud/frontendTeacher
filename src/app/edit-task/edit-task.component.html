@@ -1,5 +1,5 @@
 
-<div class="input-area">
+<div class="flex-container">
 
 <div class="input-block">
   <div class="input-title">Titel*</div>
@@ -17,7 +17,7 @@
 </div>
 
 <div class="input-block">
-  <div class="input-title">Beschreibung</div>
+  <div class="input-title">Beschreibung*</div>
   <textarea name="description" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
 </div>
 
@@ -50,15 +50,19 @@
 
 </div>
 
+<div class="flex-container">
 <div class="input-block">
-  Aufgabe zuweisen
+  <div class="input-title">Aufgabe zuweisen</div>
   <input  size = 80% style="height=300px"[(ngModel)]="task.allocate">
 </div>
 
-<div>
-  Schüler:
-  <div>{{task.allocate}}</div>
+<div class="flex-container">
+  <div class="input-title">Schüler:</div>
+  <div class="students">{{task.allocate}}</div>
 </div>
+
+</div>
+
 
 <div *ngIf="preview">
     <button (click)="deactivatePreview()" class="btn btn__preview">Vorschau beenden</button>
