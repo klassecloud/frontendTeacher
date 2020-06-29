@@ -1,84 +1,78 @@
-<table style="width:100%">
-    <tr>
-        <td style="width:30%">Titel*</td>
-        <td style="width:30%">Start</td>
-        <td style="width:30%">Ende</td>
-    </tr>
-    <tr>
-        <td><div>
-                <input  size = 80% [(ngModel)]="task.name" placeholder={{task.name}}/>
-        </div></td>
-        <td><div>
-            <input size = 80% type=date [(ngModel)]="task.start" placeholder={{task.start}}/>
-        </div></td>
-        <td><div>
-            <input size = 80% type=date [(ngModel)]="task.end" placeholder={{task.end}}/>
-        </div></td>
-    </tr>
-    <br>
-    <tr>
-        <td>Beschreibung*</td>
-        <td>Geschätzter Zeitaufwand</td>
-        <td>Vorherige Aufgabe auswählen</td>
-    </tr>
 
-    <tr>
-        <td rowspan="2"><div>
-          <textarea name="description" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
-        </div></td>
-        <td><div>
-            <input size = 80% [(ngModel)]="task.estimated_effort" placeholder={{task.estimated_effort}}/>
-        </div></td>
-        <td><div>
-          <form>
-            <select name="previoustask">
-              <option value="1">Aufgabe von letzer Woche</option>
-              <option value="2">Aufgabe von vorletzter Woche</option>
-            </select>
-          </form>
-        </div></td>
-    </tr>
+<div class="flex-container">
 
-    <br>
-    <tr>
-      <td></td>
-      <td>Arbeitsmaterialien hochladen</td>
-      <td>Musterlösung hochladen</td>
-    </tr>
+<div class="input-block">
+  <div class="input-title">Titel*</div>
+  <input [(ngModel)]="task.name" placeholder={{task.name}}/>
+</div>
 
-    <tr>
-      <td rowspan="2"><div>
+<div class="input-block">
+  <div class="input-title">Start</div>
+  <input type=date [(ngModel)]="task.start" placeholder={{task.start}}/>
+</div>
 
-      </div></td>
-      <td><div>
-        <input type="file" id="materials" size = 80%/>
-      </div></td>
-      <td><div>
-        <input type="file" id="modelSolution" size = 80%/>
-      </div></td>
-    </tr>
+<div class="input-block">
+  <div class="input-title">Ende</div>
+  <input type=date [(ngModel)]="task.end" placeholder={{task.end}}/>
+</div>
 
-  <br>
-  <tr>
-    <td>Aufgabe zuweisen</td>
-    <td>Schüler:</td>
-  </tr>
+<div class="input-block">
+  <div class="input-title">Beschreibung*</div>
+  <textarea name="description" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
+</div>
 
-  <tr>
-    <td rowspan="2"><div>
-      <input  size = 80% style="height=300px">
-    </div></td>
-    <td><div>
-      <div>{{task.allocate}}</div>
-    </div></td>
-  </tr>
+<div class="input-block">
+  <div class="input-title">Geschätzter Zeitaufwand</div>
+  <input [(ngModel)]="task.estimated_effort" placeholder={{task.estimated_effort}}/>
+</div>
 
-</table>
+<div class="input-block">
+  <div class="input-title">Vorherige Aufgabe auswählen</div>
+  <form>
+    <select name="previoustask">
+      <option value="1">Aufgabe von letzer Woche</option>
+      <option value="2">Aufgabe von vorletzter Woche</option>
+    </select>
+  </form>
+</div>
+
+
+<div class="input-block">
+  <div class="input-title">Arbeitsmaterialien hochladen</div>
+  <input type="file" id="materials" size = 80%/>
+</div>
+
+<div class="input-block">
+  <div class="input-title">Musterlösung hochladen</div>
+<input type="file" id="modelSolution" size = 80%/>
+</div>
+
+
+</div>
+
+<div class="flex-container">
+<div class="input-block">
+  <div class="input-title">Aufgabe zuweisen</div>
+  <input  size = 80% style="height=300px"[(ngModel)]="task.allocate">
+</div>
+
+<div class="flex-container">
+  <div class="input-title">Schüler:</div>
+  <div class="students">{{task.allocate}}</div>
+</div>
+
+</div>
+
 
 <div *ngIf="preview">
-    <button (click)="deactivatePreview()">Vorschau beenden</button><button (click)="save()">Speichern</button>
-    <app-task [task]="task">loading</app-task></div>
-<div *ngIf="!preview"><button (click)="activatePreview()">Vorschau</button><button (click)="save()">Speichern</button></div>
+    <button (click)="deactivatePreview()" class="btn btn__preview">Vorschau beenden</button>
+  <button (click)="save()" class="btn btn__save">Speichern</button>
+    <app-task [task]="task">loading</app-task>
+</div>
+<div *ngIf="!preview">
+  <button (click)="activatePreview()" class="btn btn__preview">Vorschau</button>
+  <button (click)="save()" class="btn btn__save">Speichern</button>
+</div>
 
 
 
