@@ -30,7 +30,7 @@ export const Tasks: Task_Interface[] = [
     {
           id: 3,
           name: 'Aufgabe 3',
-          description:  'Aufgabenbeschreibung',
+          description:  'Das hier ist eine Formel \\formel{\\frac{2}{3}} toll oder?',
           estimated_effort: '8 Stunden',
           start: new Date(),
           end: new Date(),
@@ -43,7 +43,7 @@ export const Tasks: Task_Interface[] = [
     {
           id: 4,
           name: 'Aufgabe 4',
-          description:  'Aufgabenbeschreibung',
+          description:  'Das hier ist eine Formel \\formel{\\frac{2}{3}} toll oder, und noch eine \\formel{ \\pm 15 \\sqrt{ x ^ 2 }} schick!',
           estimated_effort: '8 Stunden',
           start: new Date(),
           end: new Date(),

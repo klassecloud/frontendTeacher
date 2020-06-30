@@ -1,4 +1,3 @@
-
 <div class="flex-container">
 
 <div class="input-block">
@@ -19,6 +18,11 @@
 <div class="input-block">
   <div class="input-title">Beschreibung*</div>
   <textarea name="description" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
+  <button (click)="showKatex()">Formel eingeben</button>
+  <br><br>
+  <div *ngIf="showKatexInput">
+    <app-katex-input [taskToPaste]="task" [inputToPaste]="input"></app-katex-input>
+  </div>
 </div>
 
 <div class="input-block">
@@ -73,6 +77,4 @@
   <button (click)="activatePreview()" class="btn btn__preview">Vorschau</button>
   <button (click)="save()" class="btn btn__save">Speichern</button>
 </div>
-
-
 

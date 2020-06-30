@@ -16,6 +16,9 @@ import { TaskListComponent } from './task-list/task-list.component';
 
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { FormsModule } from '@angular/forms';
+import { KatexModule } from 'ng-katex';
+import { TaskDetailsComponent } from './task-details/task-details.component';
+import { KatexInputComponent } from './katex-input/katex-input.component';
 
 
 @NgModule({
@@ -23,7 +26,9 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     TaskComponent,
     TaskListComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    TaskDetailsComponent,
+    KatexInputComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    KatexModule
   ],
   providers: [],
   bootstrap: [AppComponent]
