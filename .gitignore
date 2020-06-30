@@ -61677,3 +61677,5 @@ node_modules/.bin/acorn
 .idea/misc.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/frontendTeacher.iml
+package.json
+package-lock.json

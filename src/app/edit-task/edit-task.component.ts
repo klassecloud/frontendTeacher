@@ -23,9 +23,11 @@ export class EditTaskComponent implements OnInit {
     allocate: ['9b', '9a', 'Verena Steinmeier'],
     subject: undefined,
     materials: undefined,
-    model_solution: undefined
+    model_solution: undefined,
+    uebung: true,
   };
 
+  public buttonheader: string;
   fileToUpload: File = null;
 
   headerConf;
@@ -56,19 +58,31 @@ export class EditTaskComponent implements OnInit {
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    if(id>0)
+    if (id > 0) {
         this.task = Tasks.find(task => task.id === id);
-
+    }
+    this.buttonheader = 'Übung';
   }
   delete() {}
   archive() {}
   save() {
-    if(this.task.id == 0){
-        this.task.id = Tasks[Tasks.length-1].id + 1;
+    if (this.task.id === 0){
+        this.task.id = Tasks[Tasks.length - 1].id + 1;
         Tasks.push(this.task);
     }
     this.router.navigateByUrl('tasklist');
   }
   preview() {}
 
+  toggleUebung()
+  {
+    this.task.uebung = !this.task.uebung;
+    if (this.buttonheader === 'Übung')
+    {
+      this.buttonheader = 'Vorlesung';
+    }
+    else {
+      this.buttonheader = 'Übung';
+    }
+  }
 }

@@ -16,23 +16,37 @@ export class CalendarComponent implements OnInit{
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     weekends: true, // initial value
-    events: [
-      // { title: this.tasks[0].name, color: 'purple', date: '2020-06-06'},
-      { title: 'Hausaufgabe: Nummerische Mathematik', date: '2020-06-06', color: 'purple', start: new Date('2020-06-05'), end: new Date('2020-06-09') },
-      { title: 'Vorlesung Nummerische Mathematik', date: '2020-06-05T19:20+01:00', color: 'red' },
-      { title: 'Vorlesung Nummerische Mathematik', date: '2020-06-10T19:20+01:00', color: 'red' },
-    ]
+    events: []
   };
 
   toggleWeekends() {
     this.calendarOptions.weekends = !this.calendarOptions.weekends // toggle the boolean!
   }
-
   constructor() {
   }
-
   ngOnInit() {
     this.tasks = Tasks;
+    const name = [];
+    const start = [];
+    const end = [];
+    const color = [];
+    for (let index = 0; index < this.tasks.length; index++)
+    {
+      name.push(Tasks[index].name);
+      start.push(Tasks[index].start);
+      end.push(Tasks[index].end);
+      if (Tasks[index].uebung) {
+        color.push('green');
+      }
+      else { color.push('purple'); }
+    }
+    const newEvents = [];
+    for (let index = 0; index < this.tasks.length; index++)
+    {
+      newEvents.push({ title: name.pop(), color: color.pop(), start: start.pop(), end: end.pop() });
+    }
+
+    this.calendarOptions.events = newEvents;
   }
 
 }
