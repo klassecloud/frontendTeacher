@@ -13,10 +13,6 @@ export class TaskComponent implements OnInit {
 
     @Input() task: Task_Interface;
 
-    //title: string = "Title";
-    //subtitle: string = "Subtitle";
-    //content: string = "Content";
-
     constructor(private router: Router) {}
 
     ngOnInit(): void {
