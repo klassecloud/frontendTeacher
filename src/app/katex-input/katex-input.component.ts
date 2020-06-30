@@ -26,7 +26,7 @@ export class KatexInputComponent implements OnInit {
       this.buttonLbls = new ButtonLabels;
   }
 
-    equationBtn(button: HTMLButtonElement): void {
+  equationBtn(button: HTMLButtonElement): void {
       var curserPos = this.inputEl.selectionStart as number;
       var curserPosEnd = this.inputEl.selectionEnd as number;
 
@@ -55,7 +55,7 @@ export class KatexInputComponent implements OnInit {
                                        curserPos + offset);
       },0);
 
-    }
+  }
 
   copyInput(input: HTMLInputElement){
     var curserPos = input.selectionStart as number;
@@ -93,10 +93,11 @@ export class KatexInputComponent implements OnInit {
     if(this.inputToPaste==undefined){
     console.log("inputToPaste undefined");
         return 0;
-        }
-      var curserPos = this.inputToPaste.selectionStart as number;
-      var curserPosEnd = this.inputToPaste.selectionEnd as number;
-     var offset = this.eqinput.length + 9;
+    }
+
+    var curserPos = this.inputToPaste.selectionStart as number;
+    var curserPosEnd = this.inputToPaste.selectionEnd as number;
+    var offset = this.eqinput.length + 9;
 
 
     this.taskToPaste.description = this.taskToPaste.description.slice(0,curserPos)
@@ -109,7 +110,8 @@ export class KatexInputComponent implements OnInit {
           this.inputToPaste.focus();
           this.inputToPaste.setSelectionRange(curserPos + offset,
                                          curserPos + offset);
-        },0);
+    },0);
+
   }
 
 }
