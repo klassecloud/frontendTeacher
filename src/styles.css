@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~material-design-icons/iconfont/material-icons.css';
+mat-icon {
+  color:White;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Full height */
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+  background-color: rgba(63,79,104,1);
+}
+
+.sidenav {
+  display: block;
+  width: 200px;
+  height:50px;
+  font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+  color:white;
+  text-align: left;
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgba(63,79,104,1);
+}
+
+.sidenav:hover{
+    background-color:rgba(24,127,91,1);
+}
+
+.main {
+  padding-left: 200px;
+}

@@ -1,7 +1,13 @@
-<router-outlet></router-outlet>
 
+
+<ul>
+    <mat-icon>folder</mat-icon>
+    <mat-icon>message-text</mat-icon>
+    <mat-icon>folder</mat-icon>
+
+    <button class="sidenav" [routerLink]="'/newtask'">New task</button>
+    <button class="sidenav" [routerLink]="'/tasklist'">Tasklist</button>
+</ul>
+<div class="main"><router-outlet></router-outlet></div>
 <br>
 <br>
-
-<button [routerLink]="'/newtask'">New task</button>
-<button [routerLink]="'/tasklist'">Tasklist</button>
