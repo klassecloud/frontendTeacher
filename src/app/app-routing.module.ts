@@ -8,7 +8,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 
 const routes: Routes = [
-{path: '', redirectTo: "tasklist", pathMatch: 'full'},
+{path: '', redirectTo: 'tasklist', pathMatch: 'full'},
 {path: 'tasklist', component: TaskListComponent},
 {path: 'newtask', component: EditTaskComponent},
 {path: 'edittask/:id', component: EditTaskComponent},

@@ -50,7 +50,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     HttpClientModule,
     FullCalendarModule,
     BrowserAnimationsModule,
-    KatexModule
+    KatexModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
