@@ -14,6 +14,8 @@ export const Tasks: Task_Interface[] = [
         materials: undefined,
         model_solution: undefined,
         uebung: true,
+        materials: {},
+        modelSolution: {}
     },
     {
           id: 2,
@@ -27,12 +29,14 @@ export const Tasks: Task_Interface[] = [
           subject: undefined,
           materials: undefined,
           model_solution: undefined,
-        uebung: true,
+          uebung: true,
+          materials: {},
+          modelSolution: {}
     },
     {
           id: 3,
           name: 'Aufgabe 3',
-          description:  'Aufgabenbeschreibung',
+          description:  'Das hier ist eine Formel \\formel{\\frac{2}{3}} toll oder?',
           estimated_effort: '8 Stunden',
           start: new Date('2020-06-16'),
           end: new Date('2020-06-19'),
@@ -41,12 +45,14 @@ export const Tasks: Task_Interface[] = [
           subject: undefined,
           materials: undefined,
           model_solution: undefined,
-        uebung: true,
+          uebung: true,
+          materials: {},
+          modelSolution: {}
     },
     {
           id: 4,
           name: 'Aufgabe 4',
-          description:  'Aufgabenbeschreibung',
+          description:  'Das hier ist eine Formel \\formel{\\frac{2}{3}} toll oder, und noch eine \\formel{ \\pm 15 \\sqrt{ x ^ 2 }} schick!',
           estimated_effort: '8 Stunden',
           start: new Date('2020-05-26'),
           end: new Date('2020-06-4'),
@@ -55,7 +61,9 @@ export const Tasks: Task_Interface[] = [
           subject: undefined,
           materials: undefined,
           model_solution: undefined,
-        uebung: true,
+          uebung: true,
+          materials: {},
+          modelSolution: {}
     },
     {
           id: 5,
@@ -69,6 +77,8 @@ export const Tasks: Task_Interface[] = [
           subject: undefined,
           materials: undefined,
           model_solution: undefined,
-        uebung: true,
+          uebung: true,
+          materials: {},
+          modelSolution: {}
     }
 ]

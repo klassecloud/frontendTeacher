@@ -22,6 +22,9 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { FormsModule } from '@angular/forms';
 import { CalendarComponent } from './calendar/calendar.component';
+import { KatexModule } from 'ng-katex';
+import { TaskDetailsComponent } from './task-details/task-details.component';
+import { KatexInputComponent } from './katex-input/katex-input.component';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -35,6 +38,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     TaskListComponent,
     EditTaskComponent,
     CalendarComponent,
+    TaskDetailsComponent,
+    KatexInputComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     HttpClientModule,
     FullCalendarModule,
     BrowserAnimationsModule,
+    KatexModule
   ],
   providers: [],
   bootstrap: [AppComponent]

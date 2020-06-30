@@ -1,0 +1,27 @@
+{{task.name}}
+<p>
+    <!--{{task.description}}-->
+    <ng-container *ngFor="let mode of stringArray.mode; let i = index">
+        <ng-container *ngIf="mode == 0; else katex">
+            {{stringArray.text[i]}}
+        </ng-container>
+        <ng-template #katex>
+            <ng-katex [equation]="stringArray.text[i]"></ng-katex>
+        </ng-template>
+    </ng-container>
+</p>
+
+<p>{{task.estimated_effort}}</p>
+
+<p>{{task.allocate}}</p>
+
+<p>{{task.start | date}} - {{task.end | date}}</p>
+
+<p>Abgabe: 2/12</p>
+
+<p>Views: 10/12</p>
+
+<p>Requests: 2</p>
+
+<button (click)="edit()">Edit</button>
+<button (click)="delete()">Delete</button>
