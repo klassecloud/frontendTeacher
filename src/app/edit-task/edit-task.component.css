@@ -3,8 +3,7 @@
   --gray: #D2D2D2;
 }
 
-.h1 {
-  font-size: 48.83pt;
+h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
   font-family: Lato, serif;
 }
 
@@ -13,6 +12,7 @@
   margin: 0.5rem;
   padding: 15px;
   alignment: right;
+  border: 2px solid #3BAC87;
 }
 
 .btn__preview {
@@ -26,13 +26,12 @@
 }
 
 .input-block {
-  min-height: 1rem;
-  min-width: 5rem;
+  min-height: 5rem;
+  min-width: 15rem;
   margin: 0.5rem;
   float: right;
   text-align: left;
   /*background-color: green;*/
-
 }
 
 .input-title {
@@ -40,9 +39,14 @@
 }
 
 .input-field {
-  padding: 12px 20px;
+  /*padding: 12px 20px;*/
+  padding: 0.6rem 1rem;
   border: 1px solid #D2D2D2;
   border-bottom: 2px solid #3BAC87;
+}
+
+.input-field--large {
+  width: 20rem;
 }
 
 .flex-container {

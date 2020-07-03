@@ -4,7 +4,7 @@
 
 <div class="input-block">
   <div class="input-title">Titel*</div>
-  <input class=input-field [(ngModel)]="task.name" placeholder={{task.name}}/>
+  <input class="input-field input-field--large" [(ngModel)]="task.name" placeholder={{task.name}}/>
 </div>
 
 <div class="input-block">
@@ -19,7 +19,7 @@
 
 <div class="input-block">
   <div class="input-title">Beschreibung*</div>
-  <textarea class=input-field name="description" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
+  <textarea class="input-field input-field--large" name="description" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
 </div>
 
 <div class="input-block">
@@ -30,7 +30,7 @@
 <div class="input-block">
   <div class="input-title">Vorherige Aufgabe auswählen</div>
   <form>
-    <select name="previoustask">
+    <select name="previoustask" class="input-field">
       <option value="1">Aufgabe von letzer Woche</option>
       <option value="2">Aufgabe von vorletzter Woche</option>
     </select>
@@ -54,7 +54,7 @@
 <div class="flex-container">
 <div class="input-block">
   <div class="input-title">Aufgabe zuweisen</div>
-  <input [(ngModel)]="task.allocate">
+  <input class="input-field" [(ngModel)]="task.allocate">
 </div>
 
 <div class="flex-container">
