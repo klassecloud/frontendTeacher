@@ -1,3 +1,13 @@
+:root {
+  --green: #3BAC87;
+  --gray: #D2D2D2;
+}
+
+.h1 {
+  font-size: 48.83pt;
+  font-family: Lato, serif;
+}
+
 .btn {
   size: 300px;
   margin: 0.5rem;
@@ -7,11 +17,11 @@
 
 .btn__preview {
   background-color: white;
-  color: green;
+  color: #3BAC87;
 }
 
 .btn__save {
-  background-color: green;
+  background-color: #3BAC87;
   color: white;
 }
 
@@ -22,10 +32,17 @@
   float: right;
   text-align: left;
   /*background-color: green;*/
+
 }
 
 .input-title {
   caption-side: top;
+}
+
+.input-field {
+  padding: 12px 20px;
+  border: 1px solid #D2D2D2;
+  border-bottom: 2px solid #3BAC87;
 }
 
 .flex-container {

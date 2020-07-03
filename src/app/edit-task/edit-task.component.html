@@ -1,29 +1,30 @@
+<h1>Aufgabe bearbeiten</h1>
 
 <div class="flex-container">
 
 <div class="input-block">
   <div class="input-title">Titel*</div>
-  <input [(ngModel)]="task.name" placeholder={{task.name}}/>
+  <input class=input-field [(ngModel)]="task.name" placeholder={{task.name}}/>
 </div>
 
 <div class="input-block">
   <div class="input-title">Start</div>
-  <input type=date [(ngModel)]="task.start" placeholder={{task.start}}/>
+  <input class=input-field type=date [(ngModel)]="task.start" placeholder={{task.start}}/>
 </div>
 
 <div class="input-block">
   <div class="input-title">Ende</div>
-  <input type=date [(ngModel)]="task.end" placeholder={{task.end}}/>
+  <input class=input-field type=date [(ngModel)]="task.end" placeholder={{task.end}}/>
 </div>
 
 <div class="input-block">
   <div class="input-title">Beschreibung*</div>
-  <textarea name="description" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
+  <textarea class=input-field name="description" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
 </div>
 
 <div class="input-block">
   <div class="input-title">Geschätzter Zeitaufwand</div>
-  <input [(ngModel)]="task.estimated_effort" placeholder={{task.estimated_effort}}/>
+  <input class=input-field [(ngModel)]="task.estimated_effort" placeholder={{task.estimated_effort}}/>
 </div>
 
 <div class="input-block">
@@ -53,7 +54,7 @@
 <div class="flex-container">
 <div class="input-block">
   <div class="input-title">Aufgabe zuweisen</div>
-  <input  size = 80% style="height=300px"[(ngModel)]="task.allocate">
+  <input [(ngModel)]="task.allocate">
 </div>
 
 <div class="flex-container">
