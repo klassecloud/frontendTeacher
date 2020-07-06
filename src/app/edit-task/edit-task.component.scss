@@ -1,7 +1,4 @@
-:root {
-  --green: #3BAC87;
-  --gray: #D2D2D2;
-}
+@import '../../variables.scss';
 
 h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
   font-family: Lato, serif;
@@ -12,16 +9,16 @@ h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
   margin: 0.5rem;
   padding: 15px;
   alignment: right;
-  border: 2px solid #3BAC87;
+  border: 2px solid $green;
 }
 
 .btn__preview {
   background-color: white;
-  color: #3BAC87;
+  color: $green;
 }
 
 .btn__save {
-  background-color: #3BAC87;
+  background-color: $green;
   color: white;
 }
 
@@ -41,8 +38,8 @@ h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
 .input-field {
   /*padding: 12px 20px;*/
   padding: 0.6rem 1rem;
-  border: 1px solid #D2D2D2;
-  border-bottom: 2px solid #3BAC87;
+  border: 1px solid $grey;
+  border-bottom: 2px solid $green;
 }
 
 .input-field--large {
@@ -54,6 +51,7 @@ h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
   display: flex;
   flex-wrap: wrap;
   flex-grow: initial;
+  justify-content: flex-start;
 }
 
 .students {
