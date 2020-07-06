@@ -23,12 +23,15 @@ h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
 }
 
 .input-block {
-  min-height: 5rem;
-  min-width: 15rem;
+  min-height: 3rem;
+  min-width: 10rem;
   margin: 0.5rem;
   float: right;
   text-align: left;
   /*background-color: green;*/
+  align-self: flex-start;
+  column-span: 2;
+  row-span: 1;
 }
 
 .input-title {
@@ -40,18 +43,28 @@ h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
   padding: 0.6rem 1rem;
   border: 1px solid $grey;
   border-bottom: 2px solid $green;
+  width: 8rem;
 }
 
-.input-field--large {
-  width: 20rem;
+.input-field--wide {
+  width: 16rem;
+  column-span: 4;
+}
+
+.input-block--high {
+  row-span: 5;
 }
 
 .flex-container {
-  /*grid-area: auto;*/
-  display: flex;
+  display: grid; //flex
   flex-wrap: wrap;
   flex-grow: initial;
   justify-content: flex-start;
+  flex-direction: row;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  grid-auto-rows: 5rem;
+
 }
 
 .students {

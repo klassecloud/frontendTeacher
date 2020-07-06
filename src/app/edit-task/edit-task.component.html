@@ -4,7 +4,7 @@
 
 <div class="input-block">
   <div class="input-title">Titel*</div>
-  <input class="input-field input-field--large" [(ngModel)]="task.name" placeholder={{task.name}}/>
+  <input class="input-field input-field--wide" [(ngModel)]="task.name" placeholder={{task.name}}/>
 </div>
 
 <div class="input-block">
@@ -17,9 +17,9 @@
   <input class=input-field type=date [(ngModel)]="task.end" placeholder={{task.end}}/>
 </div>
 
-<div class="input-block">
+<div class="input-block input-block--high">
   <div class="input-title">Beschreibung*</div>
-  <textarea class="input-field input-field--large" name="description" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
+  <textarea class="input-field input-field--wide" name="description" cols="60" rows="8" [(ngModel)]="task.description">{{task.description}}</textarea>
 </div>
 
 <div class="input-block">
@@ -40,12 +40,12 @@
 
 <div class="input-block">
   <div class="input-title">Arbeitsmaterialien hochladen</div>
-  <input type="file" id="materials" size = 80%/>
+  <input type="file" id="materials"/>
 </div>
 
 <div class="input-block">
   <div class="input-title">Musterlösung hochladen</div>
-<input type="file" id="modelSolution" size = 80%/>
+<input type="file" id="modelSolution"/>
 </div>
 
 
