@@ -28,7 +28,7 @@ import { KatexInputComponent } from './katex-input/katex-input.component';
     TaskListComponent,
     EditTaskComponent,
     TaskDetailsComponent,
-    KatexInputComponent
+    KatexInputComponent,
   ],
   imports: [
     BrowserModule,

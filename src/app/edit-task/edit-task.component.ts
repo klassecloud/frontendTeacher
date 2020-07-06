@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpResponse, HttpEventType } from '@angular/common/http';
 import { Tasks } from '../task-data';
+import { TaskBacklog } from '../task-backlog-data'
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
@@ -14,7 +15,7 @@ import { Router } from '@angular/router';
 })
 
 export class EditTaskComponent implements OnInit {
-  @Input() task: Task_Interface = {
+  task: Task_Interface = {
     id: 0,
     name: 'Aufgabenname',
     description: 'Aufgabenbeschreibung',
@@ -28,6 +29,7 @@ export class EditTaskComponent implements OnInit {
     modelSolution: {}
   };
 
+
   preview: Boolean = false;
   url = 'http://file.io'; // 'localhost:3001';
 
@@ -40,7 +42,19 @@ export class EditTaskComponent implements OnInit {
 
   percentCompleted = 0;
 
+  backlog = false;
 
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
+
+  ngOnInit(): void {
+      this.input = document.getElementById("input") as HTMLInputElement;
+
+      // get id from url, get task with this id from our task list
+      const id = +this.route.snapshot.paramMap.get('id');
+      if (id > 0) {
+          this.task = {...Tasks.find(task => task.id === id)};
+      }
+    }
 
   handleFileInput(filename) {
     const that = this;
@@ -67,17 +81,6 @@ export class EditTaskComponent implements OnInit {
     return uploadfile;
   }
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
-
-  ngOnInit(): void {
-    // get the task with id from the url from our task list
-    this.input = document.getElementById("input") as HTMLInputElement;
-    const id = +this.route.snapshot.paramMap.get('id');
-    if (id > 0) {
-        this.task = Tasks.find(task => task.id === id);
-    }
-
-  }
   activatePreview(){
     console.log(this.task.materials);
     console.log(this.task.modelSolution);
@@ -93,12 +96,21 @@ export class EditTaskComponent implements OnInit {
   save() {
     this.handleFileInput('materials');
     this.handleFileInput('modelSolution');
+
+    var list = Tasks;
+    if(this.backlog)
+        list = TaskBacklog
+
     if(this.task.id == 0){
-        if(Tasks.length>0)
-            this.task.id = Tasks[Tasks.length-1].id + 1;
+        if(list.length>0)
+            this.task.id = list[list.length-1].id + 1;
         else this.task.id = 1;
-        Tasks.push(this.task);
+    }else {
+        list.splice(list.indexOf(list.find(task => task.id === this.task.id)),1);
     }
+
+    list.push(this.task);
+
     this.router.navigateByUrl('tasklist');
   }
 

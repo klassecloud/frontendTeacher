@@ -31,15 +31,26 @@ export class KatexInputComponent implements OnInit {
       var curserPosEnd = this.inputEl.selectionEnd as number;
 
       var nameArr = button.name.split("#",2);
-      var offset = +nameArr[1];
+
+      var offset: number;
+
+      // look if any offset was given
+      if(!nameArr[1]){
+        offset = nameArr[0].length - 1
+      }else{
+        offset = +nameArr[1]
+      }
+
 
       if(curserPos==curserPosEnd){
 
+         // insert the buttonname at the curser position
          this.eqinput = this.eqinput.slice(0, curserPos)
          + nameArr[0] + this.eqinput.slice(curserPos, this.eqinput.length);
 
       }else{
 
+        // insert the button name at curser startingPosition, paste selected text in-between the parentheses
         var tmp = nameArr[0].slice(0,offset)
           + this.eqinput.slice(curserPos, curserPosEnd)
           + nameArr[0].slice(offset, nameArr[0].length);
@@ -56,7 +67,7 @@ export class KatexInputComponent implements OnInit {
       },0);
 
   }
-
+  // copies formula to clipboard
   copyInput(input: HTMLInputElement){
     var curserPos = input.selectionStart as number;
     input.select();
@@ -64,6 +75,7 @@ export class KatexInputComponent implements OnInit {
     input.setSelectionRange(curserPos, curserPos);
   }
 
+  // opens a link to wolframalpha with the equation
   openLink(){
     var tmp = "";
     for(var i=0; i<this.eqinput.length; i++){
@@ -89,9 +101,10 @@ export class KatexInputComponent implements OnInit {
     this.eqinput = "";
   }
 
+  // pastes the formula from our equation input to the description input
   pasteFormula(){
-    if(this.inputToPaste==undefined){
-    console.log("inputToPaste undefined");
+    if(!this.inputToPaste){
+        console.log("inputToPaste undefined");
         return 0;
     }
 
