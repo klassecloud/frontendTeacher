@@ -1,5 +1,7 @@
 <h1>Aufgabe bearbeiten</h1>
 
+<hr>
+
 <div class="flex-container">
 
 <div class="input-block">
@@ -17,9 +19,9 @@
   <input class=input-field type=date [(ngModel)]="task.end" placeholder={{task.end}}/>
 </div>
 
-<div class="input-block input-block--high">
+<div class="input-block description">
   <div class="input-title">Beschreibung*</div>
-  <textarea class="input-field input-field--wide" name="description" cols="60" rows="8" [(ngModel)]="task.description">{{task.description}}</textarea>
+  <textarea class="input-field input-field--wide description-field" name="description" [(ngModel)]="task.description">{{task.description}}</textarea>
 </div>
 
 <div class="input-block">
@@ -30,9 +32,9 @@
 <div class="input-block">
   <div class="input-title">Vorherige Aufgabe auswählen</div>
   <form>
-    <select name="previoustask" class="input-field">
-      <option value="1">Aufgabe von letzer Woche</option>
-      <option value="2">Aufgabe von vorletzter Woche</option>
+    <select name="previoustask" class="input-field select">
+      <option value="1">letze Woche</option>
+      <option value="2">vorletzterWoche</option>
     </select>
   </form>
 </div>
@@ -48,8 +50,9 @@
 <input type="file" id="modelSolution"/>
 </div>
 
-
 </div>
+
+<hr>
 
 <div class="flex-container">
 <div class="input-block">
@@ -57,7 +60,7 @@
   <input class="input-field" [(ngModel)]="task.allocate">
 </div>
 
-<div class="flex-container">
+<div class="input-block">
   <div class="input-title">Schüler:</div>
   <div class="students">{{task.allocate}}</div>
 </div>
