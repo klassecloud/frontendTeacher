@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~material-design-icons/iconfont/material-icons.css';
+@import 'custom-theme.scss';
+@import './variables.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.menu-spacer{
+    flex: 1 1 auto;
+}
+
+.toolbar{
+    background: $darkblue !important;
+    color: white !important;
+}
+
+.color--grey{
+    background:$grey !important;
+}
+
+.sidenav{
+    background: $darkblue !important;
+    color: white !important;
+}
+
+.sidenav--text:hover{
+    background: $green !important;
+}
+
+.sidenav--text:target{
+    background: $grey !important;
+}
+
+.sidenav--text{
+    color:white !important;
+}
+
+.sidenav--icon{
+    color:White
+}

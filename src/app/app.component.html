@@ -1,7 +1,32 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-toolbar class="toolbar" fixedInViewport style="background:$green">
+        <mat-toolbar-row>
+            <h1>KLASSE.CLOUD</h1>
+            <span class="menu-spacer"></span>
+            <div>
+                <a mat-button [routerLink]="'/activities'"> <mat-icon>search</mat-icon> Search... </a>
+                <a mat-button [routerLink]="'/create-activity'"> <mat-icon>notifications</mat-icon> </a>
 
-<br>
-<br>
+            </div>
+        </mat-toolbar-row>
 
-<button [routerLink]="'/newtask'">New task</button>
-<button [routerLink]="'/tasklist'">Tasklist</button>
+    </mat-toolbar>
+    <!-- Tipp: To enable toggling sidenave, delete opened="true" and use event "sidenav.toggle()"-->
+    <mat-sidenav color="Green" class="sidenav" fixedInViewport #sidenav mode="side" opened="true">
+        <mat-icon class="sidenav--icon">person</mat-icon>
+
+        Robert Münzer
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="'/dashboard'" class="sidenav--text"> <mat-icon class="sidenav--icon">dashboard</mat-icon> Dashboard </a>
+            <a mat-list-item [routerLink]="'/tasklist'" class="sidenav--text"> <mat-icon class="sidenav--icon">checkbox</mat-icon> Aufgaben </a>
+            <a mat-list-item [routerLink]="'/newtask'" style="margin-left:30px" class="sidenav--text"> <mat-icon class="sidenav--icon">redo</mat-icon>Neue Aufgabe </a>
+            <a mat-list-item [routerLink]="'/subjects'" class="sidenav--text"> <mat-icon class="sidenav--icon">folder</mat-icon> Fächer </a>
+            <a mat-list-item [routerLink]="'/classes'" class="sidenav--text"> <mat-icon class="sidenav--icon">school</mat-icon> Klassen </a>
+
+        </mat-nav-list>
+    </mat-sidenav>
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+
+</mat-sidenav-container>
