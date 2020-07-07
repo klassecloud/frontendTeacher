@@ -17,7 +17,8 @@ import { TaskListComponent } from './task-list/task-list.component';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { FormsModule } from '@angular/forms';
 
-import { MatIconModule } from '@angular/material/icon';
+import {MatIconModule} from '@angular/material/icon';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatIconModule } from '@angular/material/icon';
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
