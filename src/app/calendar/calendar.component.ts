@@ -12,7 +12,9 @@ import { Tasks } from '../task-data';
 export class CalendarComponent implements OnInit{
 
   @Input() tasks: Task_Interface[] = [];
-  enddate = false;
+  activatebar = false;
+  activateend = false;
+  activatestart = false;
 
   // @ts-ignore
   calendarOptions: CalendarOptions = {
@@ -24,42 +26,80 @@ export class CalendarComponent implements OnInit{
   toggleWeekends() {
     this.calendarOptions.weekends = !this.calendarOptions.weekends; // toggle the boolean!
   }
-  toggleEndDate()
+  showCalendar()
   {
     this.tasks = Tasks;
     const name = [];
     const start = [];
     const end = [];
     const color = [];
+    let zaehler = 0;
     for (let index = 0; index < this.tasks.length; index++)
     {
-      if (this.enddate) {
+      if (this.activatestart)
+      {
+        zaehler++;
+        name.push('Anfang: ' + Tasks[index].name);
+        start.push(Tasks[index].start);
+        end.push(Tasks[index].start);
+        if (Tasks[index].uebung) {
+          color.push('green');
+        }
+        else { color.push('purple'); }
+      }
+      if (this.activateend)
+      {
+        zaehler++;
         name.push('Abgabe: ' + Tasks[index].name);
         start.push(Tasks[index].end);
+        end.push(Tasks[index].end);
+        if (Tasks[index].uebung) {
+          color.push('green');
+        }
+        else { color.push('purple'); }
       }
-      else {
+      if (this.activatebar)
+      {
+        zaehler++;
         name.push(Tasks[index].name);
         start.push(Tasks[index].start);
+        end.push(Tasks[index].end);
+        if (Tasks[index].uebung) {
+          color.push('green');
+        } else {
+          color.push('purple');
+        }
       }
-      end.push(Tasks[index].end);
-      if (Tasks[index].uebung) {
-        color.push('green');
-      }
-      else { color.push('purple'); }
     }
     const newEvents = [];
     // tslint:disable-next-line:prefer-for-of
-    for (let index = 0; index < this.tasks.length; index++)
+    for (let index = 0; index <= zaehler; index++)
     {
-        newEvents.push({ title: name.pop(), color: color.pop(), start: start.pop(), end: end.pop() });
+      newEvents.push({ title: name.pop(), color: color.pop(), start: start.pop(), end: end.pop() });
     }
     this.calendarOptions.events = newEvents;
-    this.enddate = !this.enddate;
+  }
+  activateEndDate()
+  {
+    this.activateend = !this.activateend;
+    this.showCalendar();
+  }
+
+  activateStartDate()
+  {
+    this.activatestart = !this.activatestart;
+    this.showCalendar();
+  }
+
+  toggleBar()
+  {
+    this.activatebar = !this.activatebar;
+    this.showCalendar();
   }
   constructor() {
   }
   ngOnInit() {
-    this.toggleEndDate();
+    this.toggleBar();
   }
 
 }
