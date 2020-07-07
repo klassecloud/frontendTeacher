@@ -19,11 +19,11 @@ export class EditTaskComponent implements OnInit {
     id: 0,
     name: 'Aufgabenname',
     description: 'Aufgabenbeschreibung',
-    estimated_effort: '4 Stunden',
+    estimated_effort: 'X Stunden',
     start: new Date(),
     end: new Date(),
     previousTask: undefined,
-    allocate: ['9b', '9a', 'Verena Steinmeier'],
+    allocate: [],
     subject: undefined,
     materials: {},
     modelSolution: {}
@@ -38,10 +38,9 @@ export class EditTaskComponent implements OnInit {
 
   input: HTMLInputElement;
 
-  headerConf;
-
   percentCompleted = 0;
 
+  // should the task be in our backlog
   backlog = false;
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
@@ -97,6 +96,7 @@ export class EditTaskComponent implements OnInit {
     this.handleFileInput('materials');
     this.handleFileInput('modelSolution');
 
+    // @Backend save the new or changed task to our tasklist or backlog
     var list = Tasks;
     if(this.backlog)
         list = TaskBacklog
