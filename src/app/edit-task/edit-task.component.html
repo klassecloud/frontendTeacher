@@ -23,10 +23,7 @@
   <div class="input-title">Beschreibung*</div>
   <textarea id="input" name="description" class="input-field input-field--wide description-field" [(ngModel)]="task.description">{{task.description}}</textarea>
   <button (click)="showKatex()">Formel eingeben</button>
-  <br><br>
-  <div *ngIf="showKatexInput">
-    <app-katex-input [taskToPaste]="task" [inputToPaste]="input"></app-katex-input>
-  </div>
+  <br>
 </div>
 
 <div class="input-block">
@@ -89,6 +86,10 @@
 <div *ngIf="!preview">
   <button (click)="activatePreview()" class="btn btn__preview">Vorschau</button>
   <button (click)="save()" class="btn btn__save">Speichern</button>
+</div>
+
+<div *ngIf="showKatexInput">
+  <app-katex-input [taskToPaste]="task" [inputToPaste]="input"></app-katex-input>
 </div>
 
 
