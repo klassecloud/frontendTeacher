@@ -7,6 +7,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+/* You can add global styles to this file, and also import other style files */
+@import '~katex/dist/katex.css';
+
 .menu-spacer{
     flex: 1 1 auto;
 }
