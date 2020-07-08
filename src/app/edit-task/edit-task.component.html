@@ -2,7 +2,7 @@
 
 <hr>
 
-<div class="flex-container">
+<div class="grid-container">
 
 <div class="input-block">
   <div class="input-title">Titel*</div>
@@ -21,7 +21,12 @@
 
 <div class="input-block description">
   <div class="input-title">Beschreibung*</div>
-  <textarea class="input-field input-field--wide description-field" name="description" [(ngModel)]="task.description">{{task.description}}</textarea>
+  <textarea name="description" class="input-field input-field--wide description-field" [(ngModel)]="task.description">{{task.description}}</textarea>
+  <button (click)="showKatex()">Formel eingeben</button>
+  <br><br>
+  <div *ngIf="showKatexInput">
+    <app-katex-input [taskToPaste]="task" [inputToPaste]="input"></app-katex-input>
+  </div>
 </div>
 
 <div class="input-block">
@@ -54,7 +59,7 @@
 
 <hr>
 
-<div class="flex-container">
+<div class="grid-container">
 <div class="input-block">
   <div class="input-title">Aufgabe zuweisen</div>
   <input class="input-field" [(ngModel)]="task.allocate">
@@ -67,7 +72,6 @@
 
 </div>
 
-
 <div *ngIf="preview">
     <button (click)="deactivatePreview()" class="btn btn__preview">Vorschau beenden</button>
   <button (click)="save()" class="btn btn__save">Speichern</button>
@@ -77,6 +81,3 @@
   <button (click)="activatePreview()" class="btn btn__preview">Vorschau</button>
   <button (click)="save()" class="btn btn__save">Speichern</button>
 </div>
-
-
-

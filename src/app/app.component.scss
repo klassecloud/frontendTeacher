@@ -1,5 +1,6 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import '../variables.scss';
+@import '../custom-theme.scss';
 
 body {
   font-family: Roboto, Arial, sans-serif;
@@ -11,20 +12,20 @@ body {
 }
 
 .toolbar{
-    background: $darkblue !important;
-    color: white !important;
+    background: mat-color($frontendTeacher-primary, 500) !important;
+    color: mat-contrast($frontendTeacher-primary, 500) !important;
 }
 
 .spacer{
-    background:$green;
+    border-bottom: 2px solid mat-color($frontendTeacher-accent, 500);
     height:0.05rem;
     vertical-align: bottom;
 }
 
 
 .sidenav{
-    background: $darkblue !important;
-    color: white !important;
+    background: mat-color($frontendTeacher-primary, 500) !important;
+        color: mat-contrast($frontendTeacher-primary, 500) !important;
     width:16rem;
 }
 
@@ -42,11 +43,11 @@ body {
 }
 
 .sidenav--item{
-    color:white !important;
+    color: mat-contrast($frontendTeacher-primary, 500) !important;
 }
 
 .sidenav--item:hover{
-    background: $green !important;
+    background: mat-color($frontendTeacher-accent, 500) !important;
 }
 
 .sidenav--item:target{
@@ -58,7 +59,7 @@ body {
 }
 
 .sidenav--icon{
-    color:White
+    color: mat-contrast($frontendTeacher-primary, 500) !important;
 }
 
 .sidenav--nested-icon{

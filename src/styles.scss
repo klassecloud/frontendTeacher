@@ -3,6 +3,7 @@
 @import '~material-design-icons/iconfont/material-icons.css';
 @import 'custom-theme.scss';
 @import './variables.scss';
+@import '~katex/dist/katex.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -10,3 +11,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .color--grey{
     background:$grey !important;
 }
+
