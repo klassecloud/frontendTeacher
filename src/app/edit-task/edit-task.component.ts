@@ -10,11 +10,12 @@ import {ActivatedRoute, Router} from '@angular/router';
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.scss']
 })
+
 export class EditTaskComponent implements OnInit {
   @Input() task: Task_Interface = {
     id: 0,
     name: 'Aufgabenname',
-    description:  'Aufgabenbeschreibung',
+    description: 'Aufgabenbeschreibung',
     estimated_effort: '4 Stunden',
     start: new Date(),
     end: new Date(),
@@ -27,6 +28,13 @@ export class EditTaskComponent implements OnInit {
 
   preview: Boolean = false;
   url = 'http://file.io'; // TODO change to the backend server
+
+
+  showKatexInput: boolean = false;
+
+  input: HTMLInputElement;
+
+  headerConf;
 
   percentCompleted = 0;
 
@@ -54,6 +62,8 @@ export class EditTaskComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
+    // get the task with id from the url from our task list
+    this.input = document.getElementById("input") as HTMLInputElement;
     const id = +this.route.snapshot.paramMap.get('id');
     if (id > 0) {
         this.task = Tasks.find(task => task.id === id);
@@ -75,11 +85,18 @@ export class EditTaskComponent implements OnInit {
   save() {
     this.handleFileInput('materials');
     this.handleFileInput('modelSolution');
-    if (this.task.id === 0){
-        this.task.id = Tasks[Tasks.length - 1].id + 1;
+    if(this.task.id == 0){
+        if(Tasks.length>0)
+            this.task.id = Tasks[Tasks.length-1].id + 1;
+        else this.task.id = 1;
         Tasks.push(this.task);
     }
     this.router.navigateByUrl('tasklist');
     // TODO save 'task' on the backend.
   }
+
+  showKatex() {
+    this.showKatexInput ? this.showKatexInput=false : this.showKatexInput=true;
+  }
+
 }

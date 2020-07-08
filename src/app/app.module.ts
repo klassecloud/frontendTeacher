@@ -16,6 +16,9 @@ import { TaskListComponent } from './task-list/task-list.component';
 
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { FormsModule } from '@angular/forms';
+import { KatexModule } from 'ng-katex';
+import { TaskDetailsComponent } from './task-details/task-details.component';
+import { KatexInputComponent } from './katex-input/katex-input.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import 'date-input-polyfill';
@@ -26,7 +29,9 @@ import 'date-input-polyfill';
     AppComponent,
     TaskComponent,
     TaskListComponent,
-    EditTaskComponent
+    EditTaskComponent,
+    TaskDetailsComponent,
+    KatexInputComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,7 @@ import 'date-input-polyfill';
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
+    KatexModule,
     NoopAnimationsModule
   ],
   providers: [],
