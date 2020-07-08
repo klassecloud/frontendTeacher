@@ -1,8 +1,8 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
 @import 'variables.scss';
+@import "custom-paletts";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -10,11 +10,12 @@
 // Be sure that you only ever include this mixin once!
 @include mat-core();
 
+
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$frontendTeacher-primary: mat-palette($mat-indigo);
-$frontendTeacher-accent: mat-palette($mat-pink, A200, A100, A400);
+$frontendTeacher-primary: mat-palette($md-darkblue);
+$frontendTeacher-accent: mat-palette($md-green, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $frontendTeacher-warn: mat-palette($mat-red);
@@ -26,4 +27,3 @@ $frontendTeacher-theme: mat-light-theme($frontendTeacher-primary, $frontendTeach
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($frontendTeacher-theme);
-

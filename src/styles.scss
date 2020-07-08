@@ -12,8 +12,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .toolbar{
-    background: $darkblue !important;
-    color: white !important;
+    background: mat-color($frontendTeacher-primary, 500) !important;
+    color: mat-contrast($frontendTeacher-primary, 500) !important;
 }
 
 .color--grey{
@@ -21,12 +21,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .sidenav{
-    background: $darkblue !important;
-    color: white !important;
+    background: mat-color($frontendTeacher-primary, 500) !important;
+    color: mat-contrast($frontendTeacher-primary, 500) !important;
 }
 
 .sidenav--text:hover{
-    background: $green !important;
+    background: mat-color($frontendTeacher-accent, 500) !important;
 }
 
 .sidenav--text:target{
@@ -34,9 +34,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .sidenav--text{
-    color:white !important;
+    color: mat-contrast($frontendTeacher-primary, 500) !important;
 }
 
 .sidenav--icon{
-    color:White
+    color: mat-contrast($frontendTeacher-primary, 500) !important;
 }

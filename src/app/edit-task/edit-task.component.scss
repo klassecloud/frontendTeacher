@@ -1,5 +1,21 @@
 @import '../../variables.scss';
 
+
+@import '~@angular/material/theming';
+
+// always include only once per project
+@include mat-core();
+
+// import our custom theme
+@import '../../custom-theme.scss';
+
+// specify theme class eg: <body class="my-theme"> ... </body>
+.my-theme {
+
+  // use our theme with angular-material-theme mixin
+  //@include angular-material-theme($frontendTeacher-primary);
+}
+
 h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
   font-family: Lato, serif;
 }
@@ -9,16 +25,16 @@ h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
   margin: 1rem;
   padding: 1rem;
   alignment: right;
-  border: 2px solid $green;
+  border: 2px solid mat-color($frontendTeacher-accent, 500);
 }
 
 .btn__preview {
   background-color: white;
-  color: $green;
+  color: map_get($frontendTeacher-primary, 500);;
 }
 
 .btn__save {
-  background-color: $green;
+  background-color: mat-color($frontendTeacher-accent, 500);
   color: white;
 }
 
@@ -42,7 +58,7 @@ h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
   padding: 0.6rem 0.5rem 0.5rem 0.6rem;
   //margin: 0.6rem;
   border: 1px solid $grey;
-  border-bottom: 2px solid $green;
+  border-bottom: 2px solid mat-color($frontendTeacher-accent, 500);
   width: 8rem;
   height: 1rem;
 }
