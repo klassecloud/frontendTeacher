@@ -75,7 +75,7 @@ export class CalendarComponent implements OnInit{
     // tslint:disable-next-line:prefer-for-of
     for (let index = 0; index <= zaehler; index++)
     {
-      newEvents.push({ title: name.pop(), color: color.pop(), start: start.pop(), end: end.pop() });
+      newEvents.push({ allDay: true, title: name.pop(), color: color.pop(), start: start.pop(), end: end.pop() });
     }
     this.calendarOptions.events = newEvents;
   }
