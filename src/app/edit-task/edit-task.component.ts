@@ -84,8 +84,6 @@ export class EditTaskComponent implements OnInit {
     return this.http.post(this.url, formData, {observe: 'events', reportProgress: true});
   }
 
-
-
   activatePreview(){
     console.log(this.task.materials);
     console.log(this.task.modelSolution);
@@ -100,29 +98,24 @@ export class EditTaskComponent implements OnInit {
   archive() {}
   save() {
 
+    //this.handleFileInput('materials');
+    //this.handleFileInput('modelSolution:');
+
     // @Backend save the new or changed task to our tasklist or backlog
     var list = Tasks;
     if(this.backlog)
-        list = TaskBacklog
-
+        list = TaskBacklog;
 
     if (this.task.id === 0) {
-      this.task.id = Tasks[Tasks.length - 1].id + 1;
-      this.handleFileInput('materials');
-      this.handleFileInput('modelSolution:');
-      if (this.task.id === 0) {
-        if (Tasks.length > 0) {
-          this.task.id = Tasks[Tasks.length - 1].id + 1;
+        if (list.length > 0) {
+            this.task.id = list[list.length - 1].id + 1;
         } else {
-          this.task.id = 1;
+            this.task.id = 1;
         }
-        Tasks.push(this.task);
-      }
-      this.router.navigateByUrl('tasklist');
-
+        list.push(this.task);
+    }else {
+        list[(list.indexOf(list.find(task => task.id === this.task.id)),1)] = this.task;
     }
-
-    list.push(this.task);
 
     this.router.navigateByUrl('tasklist');
     // TODO save 'task' on the backend.
