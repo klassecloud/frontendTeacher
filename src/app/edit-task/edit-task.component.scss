@@ -79,9 +79,10 @@ h1, h2, h3, h4, h5, h6, text, p, button, input, .input-title {
 .description-field {
   min-height: 5rem;
   max-height: 15rem;
-  resize: none;
+  resize: none; //so the textarea can't overlap other fields
 }
 
+//the description has a larger field, the other shouldn't be overlaped by this, the block need 2 grid cells.
 .description {
   grid-column: 1 / span 1;
   grid-row: 2 / span 2;

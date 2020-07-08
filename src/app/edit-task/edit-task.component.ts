@@ -1,11 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Task_Interface} from '../task-interface';
 import {Observable} from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { HttpResponse, HttpEventType } from '@angular/common/http';
-import { Tasks } from '../task-data';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import {HttpClient, HttpEventType, HttpResponse} from '@angular/common/http';
+import {Tasks} from '../task-data';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-task',
@@ -28,34 +26,29 @@ export class EditTaskComponent implements OnInit {
   };
 
   preview: Boolean = false;
-  url = 'http://file.io'; // 'localhost:3001';
+  url = 'http://file.io'; // TODO change to the backend server
 
   percentCompleted = 0;
 
-
   handleFileInput(filename) {
     const that = this;
-    const fileToUpload = (filename === 'materials') ?
-      (document.getElementById('materials') as HTMLInputElement).files :
-      (document.getElementById('modelSolution') as HTMLInputElement).files;
-    console.log(fileToUpload);
+    const fileToUpload = (document.getElementById(filename) as HTMLInputElement).files; // get the file from
     if (fileToUpload.length > 0) {
       const file = fileToUpload.item(0);
       const formData = new FormData();
-      formData.append('file', file);
+      formData.append('file', file); // format to upload to file io
       this.uploadWithProgress(formData).subscribe(event => {
         if (event.type === HttpEventType.UploadProgress) {
           this.percentCompleted = Math.round(100 * event.loaded / event.total);
         } else if (event instanceof HttpResponse) {
-          that.task[filename][file.name] = event.body.link;
+          that.task[filename][file.name] = event.body.link; // save the URL from the file.
         }
       });
     }
   }
 
   uploadWithProgress(formData: FormData): Observable<any> {
-    const uploadfile = this.http.post(this.url, formData, { observe: 'events',  reportProgress: true });
-    return uploadfile;
+    return this.http.post(this.url, formData, {observe: 'events', reportProgress: true});
   }
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
@@ -65,7 +58,6 @@ export class EditTaskComponent implements OnInit {
     if (id > 0) {
         this.task = Tasks.find(task => task.id === id);
     }
-
 
   }
   activatePreview(){
@@ -88,7 +80,6 @@ export class EditTaskComponent implements OnInit {
         Tasks.push(this.task);
     }
     this.router.navigateByUrl('tasklist');
+    // TODO save 'task' on the backend.
   }
-
-
 }
