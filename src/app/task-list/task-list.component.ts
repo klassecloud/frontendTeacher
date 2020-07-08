@@ -13,7 +13,7 @@ export class TaskListComponent implements OnInit {
 
   @Input() tasks: Task_Interface[] = [];
 
-  @Input() toolbarName:string;
+  toolbarName:string;
 
   constructor(private router: Router) { }
 

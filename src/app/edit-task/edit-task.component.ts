@@ -48,7 +48,7 @@ export class EditTaskComponent implements OnInit {
   ngOnInit(): void {
       this.input = document.getElementById("input") as HTMLInputElement;
 
-      // get id from url, get task with this id from our task list
+      // get id from url, get task with this id from our task list as dummy
       const id = +this.route.snapshot.paramMap.get('id');
       if (id > 0) {
           this.task = {...Tasks.find(task => task.id === id)};

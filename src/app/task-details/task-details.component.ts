@@ -14,7 +14,7 @@ import { StringArray } from '../stringArray';
 })
 export class TaskDetailsComponent implements OnInit {
 
-    taskc: TaskComponent = new TaskComponent(this.router);
+    taskComponent: TaskComponent = new TaskComponent(this.router);
 
     @Input() task: Task_Interface = {
         id: 0,
@@ -40,7 +40,7 @@ export class TaskDetailsComponent implements OnInit {
     if(id>0)
         this.task = Tasks.find(task => task.id === id);
 
-    this.taskc.calculateKatex(this.task, this.stringArray);
+    this.taskComponent.calculateKatex(this.task, this.stringArray);
   }
 
   edit(){
