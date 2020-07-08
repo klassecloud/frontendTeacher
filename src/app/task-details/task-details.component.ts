@@ -27,7 +27,7 @@ export class TaskDetailsComponent implements OnInit {
         allocate: ['9b', '9a', 'Verena Steinmeier'],
         subject: undefined,
         materials: undefined,
-        model_solution: undefined
+        modelSolution: undefined
     };
 
     stringArray: StringArray = { text: [], mode:[] }
