@@ -14,6 +14,7 @@ const routes: Routes = [
 {path: 'edittask/:id', component: EditTaskComponent},
 {path: 'calendar', component: CalendarComponent},
 {path: 'taskdetails/:id', component: TaskDetailsComponent},
+{path: 'backlog', component: TaskListComponent}
 ];
 
 @NgModule({

@@ -27,43 +27,55 @@ export class KatexInputComponent implements OnInit {
   }
 
   equationBtn(button: HTMLButtonElement): void {
-      var curserPos = this.inputEl.selectionStart as number;
+      var curserPosStart = this.inputEl.selectionStart as number;
       var curserPosEnd = this.inputEl.selectionEnd as number;
 
       var nameArr = button.name.split("#",2);
-      var offset = +nameArr[1];
 
-      if(curserPos==curserPosEnd){
+      var offset: number;
 
-         this.eqinput = this.eqinput.slice(0, curserPos)
-         + nameArr[0] + this.eqinput.slice(curserPos, this.eqinput.length);
+      // look if any offset was given
+      if(!nameArr[1]){
+        offset = nameArr[0].length - 1
+      }else{
+        offset = +nameArr[1]
+      }
+
+
+      if(curserPosStart==curserPosEnd){
+
+         // insert the buttonname at the curser position
+         this.eqinput = this.eqinput.slice(0, curserPosStart)
+         + nameArr[0] + this.eqinput.slice(curserPosStart, this.eqinput.length);
 
       }else{
 
+        // insert the button name at curser startingPosition, paste selected text in-between the parentheses
         var tmp = nameArr[0].slice(0,offset)
-          + this.eqinput.slice(curserPos, curserPosEnd)
+          + this.eqinput.slice(curserPosStart, curserPosEnd)
           + nameArr[0].slice(offset, nameArr[0].length);
 
-        this.eqinput = this.eqinput.slice(0,curserPos)
+        this.eqinput = this.eqinput.slice(0,curserPosStart)
           + tmp
           + this.eqinput.slice(curserPosEnd, this.eqinput.length);
       }
 
       setTimeout(()=>{
         this.inputEl.focus();
-        this.inputEl.setSelectionRange(curserPos + offset,
-                                       curserPos + offset);
+        this.inputEl.setSelectionRange(curserPosStart + offset,
+                                       curserPosStart + offset);
       },0);
 
   }
-
+  // copies formula to clipboard
   copyInput(input: HTMLInputElement){
-    var curserPos = input.selectionStart as number;
+    var curserPosStart = input.selectionStart as number;
     input.select();
     document.execCommand('copy');
-    input.setSelectionRange(curserPos, curserPos);
+    input.setSelectionRange(curserPosStart, curserPosStart);
   }
 
+  // opens a link to wolframalpha with the equation
   openLink(){
     var tmp = "";
     for(var i=0; i<this.eqinput.length; i++){
@@ -89,18 +101,19 @@ export class KatexInputComponent implements OnInit {
     this.eqinput = "";
   }
 
+  // pastes the formula from our equation input to the description input
   pasteFormula(){
-    if(this.inputToPaste==undefined){
-    console.log("inputToPaste undefined");
+    if(!this.inputToPaste){
+        console.log("inputToPaste undefined");
         return 0;
     }
 
-    var curserPos = this.inputToPaste.selectionStart as number;
+    var curserPosStart = this.inputToPaste.selectionStart as number;
     var curserPosEnd = this.inputToPaste.selectionEnd as number;
     var offset = this.eqinput.length + 9;
 
 
-    this.taskToPaste.description = this.taskToPaste.description.slice(0,curserPos)
+    this.taskToPaste.description = this.taskToPaste.description.slice(0,curserPosStart)
                                     + '\\formel{'
                                     + this.eqinput
                                     + '}'
@@ -108,8 +121,8 @@ export class KatexInputComponent implements OnInit {
 
     setTimeout(()=>{
           this.inputToPaste.focus();
-          this.inputToPaste.setSelectionRange(curserPos + offset,
-                                         curserPos + offset);
+          this.inputToPaste.setSelectionRange(curserPosStart + offset,
+                                         curserPosStart + offset);
     },0);
 
   }

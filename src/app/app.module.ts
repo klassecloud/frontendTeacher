@@ -41,7 +41,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     EditTaskComponent,
     CalendarComponent,
     TaskDetailsComponent,
-    KatexInputComponent
+    KatexInputComponent,
   ],
   imports: [
     BrowserModule,

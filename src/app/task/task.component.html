@@ -1,16 +1,21 @@
 <mat-card class="task-card">
-
-
+    <mat-card-header class="color--grey" style="background:rgba(36,219,198); padding:15px 0px; border-radius:4px 4px 0px 0px;">
+        <mat-card-title >
+            {{task.name}}
+        </mat-card-title>
+        <div *ngIf="backlog" style="float:right">
+            <button (click)="assign()">Assign</button>
+        </div>
+        <!--<mat-card-subtitle>{{subtitle}}</mat-card-subtitle>-->
+    </mat-card-header>
 
     <div (click)="details()">
-      <mat-card-header class="color--grey" style="background:rgba(36,219,198); padding:15px 0px; border-radius:4px 4px 0px 0px;">
-        <mat-card-title >{{task.name}}</mat-card-title>
-        <!--<mat-card-subtitle>{{subtitle}}</mat-card-subtitle>-->
-      </mat-card-header>
-
         <mat-card-content style="padding:10px 10px 0px 10px;">
             <p>
-                <!--{{task.description}}-->
+                <!--
+                Reads the stringArray, if the mode is 0 the text is displayed normally
+                if the mode is 1 the equation string gets displayed using katex
+                -->
                 <ng-container *ngFor="let mode of stringArray.mode; let i = index">
                     <ng-container *ngIf="mode == 0; else katex">
                         {{stringArray.text[i]}}
@@ -25,6 +30,6 @@
 
     <mat-card-actions>
         <button mat-button (click)="edit()">Edit</button>
-        <button (click)="delete()" style="float:right" mat-button>Delete</button>
+        <button mat-button (click)="delete()" style="float:right">Delete</button>
     </mat-card-actions>
 </mat-card>
