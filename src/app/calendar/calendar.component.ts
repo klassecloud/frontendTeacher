@@ -15,6 +15,10 @@ export class CalendarComponent implements OnInit{
   activatebar = false;
   activateend = false;
   activatestart = false;
+  public Wochenendeheader: string;
+  public Verlaufheader: string;
+  public Startheader: string;
+  public Endheader: string;
 
   // @ts-ignore
   calendarOptions: CalendarOptions = {
@@ -25,6 +29,10 @@ export class CalendarComponent implements OnInit{
 
   toggleWeekends() {
     this.calendarOptions.weekends = !this.calendarOptions.weekends; // toggle the boolean!
+    if (this.Wochenendeheader === 'Wochenende ausblenden')
+    {
+      this.Wochenendeheader = 'Wochenende einblenden';
+    }else {this.Wochenendeheader = 'Wochenende ausblenden'; }
   }
   showCalendar()
   {
@@ -82,6 +90,10 @@ export class CalendarComponent implements OnInit{
   activateEndDate()
   {
     this.activateend = !this.activateend;
+    if (this.Endheader === 'Endpunkte aktivieren')
+    {
+      this.Endheader = 'Endpunkte deaktivieren';
+    }else {this.Endheader = 'Endpunkte aktivieren'; }
     this.showCalendar();
   }
 
@@ -89,17 +101,29 @@ export class CalendarComponent implements OnInit{
   {
     this.activatestart = !this.activatestart;
     this.showCalendar();
+    if (this.Startheader === 'Startpunkte aktivieren')
+    {
+      this.Startheader = 'Startpunkte deaktivieren';
+    }else {this.Startheader = 'Startpunkte aktivieren'; }
   }
 
   toggleBar()
   {
     this.activatebar = !this.activatebar;
     this.showCalendar();
+    if ( this.Verlaufheader === 'Verlauf deaktivieren' )
+    {
+      this.Verlaufheader = 'Verlauf aktivieren';
+    }else {this.Verlaufheader = 'Verlauf deaktivieren'; }
   }
   constructor() {
   }
   ngOnInit() {
     this.toggleBar();
+    this.Wochenendeheader = 'Wochenende ausblenden';
+    this.Verlaufheader = 'Verlauf deaktivieren';
+    this.Startheader = 'Startpunkte aktivieren';
+    this.Endheader = 'Endpunkte aktivieren';
   }
 
 }
