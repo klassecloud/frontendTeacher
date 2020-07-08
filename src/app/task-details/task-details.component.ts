@@ -3,7 +3,7 @@ import { Tasks } from '../task-data';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import {Task_Interface} from '../task-interface';
-import {TaskComponent} from '../task/task.component'
+import {TaskComponent} from '../task/task.component';
 import { StringArray } from '../stringArray';
 
 
@@ -27,18 +27,20 @@ export class TaskDetailsComponent implements OnInit {
         allocate: ['9b', '9a', 'Verena Steinmeier'],
         subject: undefined,
         materials: undefined,
+        uebung: true,
         modelSolution: undefined
     };
 
-    stringArray: StringArray = { text: [], mode:[] }
+    stringArray: StringArray = { text: [], mode: [] };
 
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    if(id>0)
+    if (id > 0) {
         this.task = Tasks.find(task => task.id === id);
+    }
 
     this.taskc.calculateKatex(this.task, this.stringArray);
   }
@@ -48,7 +50,7 @@ export class TaskDetailsComponent implements OnInit {
   }
 
   delete(){
-    Tasks.splice(Tasks.indexOf(Tasks.find(task => task.id === this.task.id)),1);
+    Tasks.splice(Tasks.indexOf(Tasks.find(task => task.id === this.task.id)), 1);
     this.router.navigateByUrl('/tasklist');
   }
 

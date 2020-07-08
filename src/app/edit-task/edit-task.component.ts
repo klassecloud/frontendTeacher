@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.css']
 })
-
 export class EditTaskComponent implements OnInit {
   @Input() task: Task_Interface = {
     id: 0,
@@ -25,14 +24,17 @@ export class EditTaskComponent implements OnInit {
     allocate: ['9b', '9a', 'Verena Steinmeier'],
     subject: undefined,
     materials: {},
-    modelSolution: {}
+    model_solution: {},
+    uebung: true,
   };
 
-  preview: Boolean = false;
+  public buttonheader: string;
+
+  preview = false;
   url = 'http://file.io'; // 'localhost:3001';
 
 
-  showKatexInput: boolean = false;
+  showKatexInput = false;
 
   input: HTMLInputElement;
 
@@ -40,13 +42,11 @@ export class EditTaskComponent implements OnInit {
 
   percentCompleted = 0;
 
-
-
   handleFileInput(filename) {
     const that = this;
     const fileToUpload = (filename === 'materials') ?
-      (document.getElementById('materials') as HTMLInputElement).files :
-      (document.getElementById('modelSolution') as HTMLInputElement).files;
+        (document.getElementById('materials') as HTMLInputElement).files :
+        (document.getElementById('model_solution') as HTMLInputElement).files;
     console.log(fileToUpload);
     if (fileToUpload.length > 0) {
       const file = fileToUpload.item(0);
@@ -63,24 +63,29 @@ export class EditTaskComponent implements OnInit {
   }
 
   uploadWithProgress(formData: FormData): Observable<any> {
-    const uploadfile = this.http.post(this.url, formData, { observe: 'events',  reportProgress: true });
+    const uploadfile = this.http.post(this.url, formData, {observe: 'events', reportProgress: true});
     return uploadfile;
   }
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
-
-  ngOnInit(): void {
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
+  }
+ngOnInit(): void {
     // get the task with id from the url from our task list
-    this.input = document.getElementById("input") as HTMLInputElement;
+    this.input = document.getElementById('input') as HTMLInputElement;
     const id = +this.route.snapshot.paramMap.get('id');
     if (id > 0) {
         this.task = Tasks.find(task => task.id === id);
     }
+    if (this.task.uebung)
+    {
+      this.buttonheader = 'Übung';
+    }
+    else {this.buttonheader = 'Vorlesung'; }
 
   }
   activatePreview(){
     console.log(this.task.materials);
-    console.log(this.task.modelSolution);
+    console.log(this.task.model_solution);
     this.preview = true;
   }
 
@@ -91,19 +96,35 @@ export class EditTaskComponent implements OnInit {
   delete() {}
   archive() {}
   save() {
-    this.handleFileInput('materials');
-    this.handleFileInput('modelSolution');
-    if(this.task.id == 0){
-        if(Tasks.length>0)
-            this.task.id = Tasks[Tasks.length-1].id + 1;
-        else this.task.id = 1;
+    if (this.task.id === 0) {
+      this.task.id = Tasks[Tasks.length - 1].id + 1;
+      this.handleFileInput('materials');
+      this.handleFileInput('model_solution');
+      if (this.task.id === 0) {
+        if (Tasks.length > 0) {
+          this.task.id = Tasks[Tasks.length - 1].id + 1;
+        } else {
+          this.task.id = 1;
+        }
         Tasks.push(this.task);
+      }
+      this.router.navigateByUrl('tasklist');
     }
-    this.router.navigateByUrl('tasklist');
+  }
+  showKatex()
+  {
+    this.showKatexInput ? this.showKatexInput = false : this.showKatexInput = true;
   }
 
-  showKatex() {
-    this.showKatexInput ? this.showKatexInput=false : this.showKatexInput=true;
+    toggleUebung()
+    {
+    this.task.uebung = !this.task.uebung;
+    if (this.buttonheader === 'Übung')
+    {
+      this.buttonheader = 'Vorlesung';
+    }
+    else {
+      this.buttonheader = 'Übung';
+    }
   }
-
 }
