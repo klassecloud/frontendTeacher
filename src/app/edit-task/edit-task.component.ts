@@ -66,6 +66,7 @@ export class EditTaskComponent implements OnInit {
         this.task = Tasks.find(task => task.id === id);
     }
 
+
   }
   activatePreview(){
     console.log(this.task.materials);
@@ -88,5 +89,6 @@ export class EditTaskComponent implements OnInit {
     }
     this.router.navigateByUrl('tasklist');
   }
+
 
 }

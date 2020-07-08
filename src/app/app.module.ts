@@ -18,6 +18,8 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
 import { FormsModule } from '@angular/forms';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import 'date-input-polyfill';
+
 
 @NgModule({
   declarations: [
