@@ -1,5 +1,10 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
+/node_modules
+.idea/workspace.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/inspectionProfiles/Project_Default.xml
+.idea/frontendTeacher.iml
 # compiled output
 /dist
 /tmp

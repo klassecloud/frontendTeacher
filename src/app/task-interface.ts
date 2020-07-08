@@ -10,4 +10,5 @@ export class Task_Interface {
   subject: string;
   materials: object;
   modelSolution: object;
+  uebung: boolean;
 }
