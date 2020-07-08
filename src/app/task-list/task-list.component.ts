@@ -18,7 +18,6 @@ export class TaskListComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.router.url);
 
     // use Backlog list if url is backlog
     if(this.router.url == "/backlog"){
