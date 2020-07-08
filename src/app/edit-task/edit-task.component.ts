@@ -47,14 +47,19 @@ export class EditTaskComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-      this.input = document.getElementById("input") as HTMLInputElement;
-
-      // get id from url, get task with this id from our task list as dummy
-      const id = +this.route.snapshot.paramMap.get('id');
-      if (id > 0) {
-          this.task = {...Tasks.find(task => task.id === id)};
-      }
+    // get the task with id from the url from our task list
+    this.input = document.getElementById('input') as HTMLInputElement;
+    const id = +this.route.snapshot.paramMap.get('id');
+    if (id > 0) {
+        this.task = Tasks.find(task => task.id === id);
     }
+    if (this.task.uebung)
+    {
+      this.buttonheader = 'Übung';
+    }
+    else {this.buttonheader = 'Vorlesung'; }
+
+  }
 
 
   handleFileInput(filename) {
@@ -80,22 +85,6 @@ export class EditTaskComponent implements OnInit {
   }
 
 
-  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router) {
-  }
-ngOnInit(): void {
-    // get the task with id from the url from our task list
-    this.input = document.getElementById('input') as HTMLInputElement;
-    const id = +this.route.snapshot.paramMap.get('id');
-    if (id > 0) {
-        this.task = Tasks.find(task => task.id === id);
-    }
-    if (this.task.uebung)
-    {
-      this.buttonheader = 'Übung';
-    }
-    else {this.buttonheader = 'Vorlesung'; }
-
-  }
 
   activatePreview(){
     console.log(this.task.materials);
@@ -143,8 +132,8 @@ ngOnInit(): void {
     this.showKatexInput ? this.showKatexInput = false : this.showKatexInput = true;
   }
 
-    toggleUebung()
-    {
+  toggleUebung()
+  {
     this.task.uebung = !this.task.uebung;
     if (this.buttonheader === 'Übung')
     {

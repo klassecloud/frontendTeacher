@@ -12,7 +12,8 @@ export const TaskBacklog: Task_Interface[] = [
         allocate: ['9b', '9a', 'Verena Steinmeier'],
         subject: undefined,
         materials: {},
-        modelSolution: {}
+        modelSolution: {},
+        uebung: true,
     },
     {
         id: 2,
@@ -25,6 +26,7 @@ export const TaskBacklog: Task_Interface[] = [
         allocate: ['9b', '9a', 'Verena Steinmeier'],
         subject: undefined,
         materials: {},
-        modelSolution: {}
+        modelSolution: {},
+        uebung: true,
     }
 ]
