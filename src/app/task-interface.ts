@@ -9,5 +9,6 @@ export class Task_Interface {
   allocate: object;
   subject: string;
   materials: object;
-  modelSolution: object;
+  model_solution: object;
+  uebung: boolean;
 }
