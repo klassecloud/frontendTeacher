@@ -22,7 +22,7 @@ export class EditTaskComponent implements OnInit {
     allocate: ['9b', '9a', 'Verena Steinmeier'],
     subject: undefined,
     materials: {},
-    model_solution: {},
+    modelSolution: {},
     uebung: true,
   };
 
@@ -80,7 +80,7 @@ ngOnInit(): void {
   }
   activatePreview(){
     console.log(this.task.materials);
-    console.log(this.task.model_solution);
+    console.log(this.task.modelSolution);
     this.preview = true;
   }
 
@@ -94,7 +94,7 @@ ngOnInit(): void {
     if (this.task.id === 0) {
       this.task.id = Tasks[Tasks.length - 1].id + 1;
       this.handleFileInput('materials');
-      this.handleFileInput('model_solution');
+      this.handleFileInput('modelSolution:');
       if (this.task.id === 0) {
         if (Tasks.length > 0) {
           this.task.id = Tasks[Tasks.length - 1].id + 1;

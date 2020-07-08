@@ -51,7 +51,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FormsModule,
     HttpClientModule,
     KatexModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
     FullCalendarModule,
     BrowserAnimationsModule
   ],
