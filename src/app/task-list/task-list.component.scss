@@ -1,12 +1,13 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
+
 .cardsGrid {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
    justify-content: flex-start;
-   fxLayoutAlign: center;
-   fxLayout.xs: column;
+   /*fxLayoutAlign: center;
+   fxLayout.xs: column;*/
 }
 
 .cardsGridItem {

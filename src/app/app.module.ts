@@ -26,6 +26,8 @@ import { KatexModule } from 'ng-katex';
 import { TaskDetailsComponent } from './task-details/task-details.component';
 import { KatexInputComponent } from './katex-input/katex-input.component';
 
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import 'date-input-polyfill';
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin
@@ -48,9 +50,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    FullCalendarModule,
-    BrowserAnimationsModule,
     KatexModule,
+    NoopAnimationsModule,
+    FullCalendarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

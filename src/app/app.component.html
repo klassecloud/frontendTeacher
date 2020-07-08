@@ -1,8 +1,37 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-toolbar class="toolbar" fixedInViewport>
+        <mat-toolbar-row>
+            <h1>KLASSE.CLOUD</h1>
+            <span class="menu-spacer"></span>
+            <div>
+                <!-- TO-DO: implement search and notifications -->
+                <a mat-button [routerLink]="'/activities'"> <mat-icon>search</mat-icon> Search... </a>
+                <a mat-button [routerLink]="'/create-activity'"> <mat-icon>notifications</mat-icon> </a>
 
-<br>
-<br>
+            </div>
+        </mat-toolbar-row>
 
-<button [routerLink]="'/newtask'">New task</button>
-<button [routerLink]="'/tasklist'">Tasklist</button>
-<button [routerLink]="'/calendar'">calendar</button>
+    </mat-toolbar>
+    <!-- Tipp: To enable toggling sidenave, delete opened="true" and use event "sidenav.toggle()"-->
+    <mat-sidenav color="Green" class="sidenav" fixedInViewport #sidenav mode="side" opened="true">
+        <!-- Profile-picture here -->
+        <div class="sidenav--person"><mat-icon class="sidenav--icon sidenav--picture">person</mat-icon>
+            <!-- Name here -->
+            <div class="sidenav--name">Robert Münzer</div>
+        <div class="spacer"></div>
+        </div>
+        <mat-nav-list>
+            <!-- TO-DO: implement dashboard, subjects and classes -->
+            <a mat-list-item [routerLink]="'/dashboard'" class="sidenav--item"> <mat-icon class="sidenav--icon">dashboard</mat-icon> <div class="sidenav--text">Dashboard</div> </a>
+            <a mat-list-item [routerLink]="'/tasklist'" class="sidenav--item"> <mat-icon class="sidenav--icon">checkbox</mat-icon>  <div class="sidenav--text">Aufgaben</div> </a>
+            <a mat-list-item [routerLink]="'/newtask'" class="sidenav--item"> <mat-icon class="sidenav--icon sidenav--nested-icon">redo</mat-icon> <div class="sidenav--text sidenav--nested-text">Neue Aufgabe</div> </a>
+            <a mat-list-item [routerLink]="'/subjects'" class="sidenav--item"> <mat-icon class="sidenav--icon">folder</mat-icon>  <div class="sidenav--text">Fächer</div> </a>
+            <a mat-list-item [routerLink]="'/classes'" class="sidenav--item"> <mat-icon class="sidenav--icon">school</mat-icon>  <div class="sidenav--text">Klassen</div> </a>
+            <a mat-list-item [routerLink]="'/calendar'" class="sidenav--item"> <mat-icon class="sidenav--icon">event</mat-icon>  <div class="sidenav--text">Kalender</div> </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+
+</mat-sidenav-container>

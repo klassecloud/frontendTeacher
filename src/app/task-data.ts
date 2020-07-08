@@ -12,7 +12,7 @@ export const Tasks: Task_Interface[] = [
         allocate: ['9b', '9a', 'Verena Steinmeier'],
         subject: undefined,
         materials: {},
-        model_solution: {},
+        modelSolution: {},
         uebung: true,
     },
     {
@@ -26,7 +26,7 @@ export const Tasks: Task_Interface[] = [
         allocate: ['9b', '9a', 'Verena Steinmeier'],
         subject: undefined,
         materials: {},
-        model_solution: {},
+        modelSolution: {},
         uebung: true,
     },
     {
@@ -40,7 +40,7 @@ export const Tasks: Task_Interface[] = [
         allocate: ['9b', '9a', 'Verena Steinmeier'],
         subject: undefined,
         materials: {},
-        model_solution: {},
+        modelSolution: {},
         uebung: true,
     },
     {
@@ -54,7 +54,7 @@ export const Tasks: Task_Interface[] = [
         allocate: ['9b', '9a', 'Verena Steinmeier'],
         subject: undefined,
         materials: {},
-        model_solution: {},
+        modelSolution: {},
         uebung: true,
     },
     {
@@ -68,7 +68,7 @@ export const Tasks: Task_Interface[] = [
         allocate: ['9b', '9a', 'Verena Steinmeier'],
         subject: undefined,
         materials: {},
-        model_solution: {},
+        modelSolution: {},
         uebung: true,
     }
 ]

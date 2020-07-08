@@ -1,23 +1,27 @@
-<div class="flex-container">
+<h1>Aufgabe bearbeiten</h1>
+
+<hr>
+
+<div class="grid-container">
 
 <div class="input-block">
   <div class="input-title">Titel*</div>
-  <input [(ngModel)]="task.name" placeholder={{task.name}}/>
+  <input class="input-field input-field--wide" [(ngModel)]="task.name" placeholder={{task.name}}/>
 </div>
 
 <div class="input-block">
   <div class="input-title">Start</div>
-  <input type=date [(ngModel)]="task.start" placeholder={{task.start}}/>
+  <input class=input-field type=date [(ngModel)]="task.start" placeholder={{task.start}}/>
 </div>
 
 <div class="input-block">
   <div class="input-title">Ende</div>
-  <input type=date [(ngModel)]="task.end" placeholder={{task.end}}/>
+  <input class=input-field type=date [(ngModel)]="task.end" placeholder={{task.end}}/>
 </div>
 
-<div class="input-block">
+<div class="input-block description">
   <div class="input-title">Beschreibung*</div>
-  <textarea name="description" cols="60" rows="5" [(ngModel)]="task.description">{{task.description}}</textarea>
+  <textarea name="description" class="input-field input-field--wide description-field" [(ngModel)]="task.description">{{task.description}}</textarea>
   <button (click)="showKatex()">Formel eingeben</button>
   <br><br>
   <div *ngIf="showKatexInput">
@@ -27,15 +31,15 @@
 
 <div class="input-block">
   <div class="input-title">Geschätzter Zeitaufwand</div>
-  <input [(ngModel)]="task.estimated_effort" placeholder={{task.estimated_effort}}/>
+  <input class=input-field [(ngModel)]="task.estimated_effort" placeholder={{task.estimated_effort}}/>
 </div>
 
 <div class="input-block">
   <div class="input-title">Vorherige Aufgabe auswählen</div>
   <form>
-    <select name="previoustask">
-      <option value="1">Aufgabe von letzer Woche</option>
-      <option value="2">Aufgabe von vorletzter Woche</option>
+    <select name="previoustask" class="input-field select">
+      <option value="1">letze Woche</option>
+      <option value="2">vorletzterWoche</option>
     </select>
   </form>
 </div>
@@ -43,24 +47,25 @@
 
 <div class="input-block">
   <div class="input-title">Arbeitsmaterialien hochladen</div>
-  <input type="file" id="materials" size = 80%/>
+  <input type="file" id="materials"/>
 </div>
 
 <div class="input-block">
   <div class="input-title">Musterlösung hochladen</div>
-<input type="file" id="modelSolution" size = 80%/>
+<input type="file" id="modelSolution"/>
 </div>
 
-
 </div>
 
-<div class="flex-container">
+<hr>
+
+<div class="grid-container">
 <div class="input-block">
   <div class="input-title">Aufgabe zuweisen</div>
-  <input  size = 80% style="height=300px"[(ngModel)]="task.allocate">
+  <input class="input-field" [(ngModel)]="task.allocate">
 </div>
 
-<div class="flex-container">
+<div class="input-block">
   <div class="input-title">Schüler:</div>
   <div class="students">{{task.allocate}}</div>
 </div>
@@ -69,7 +74,6 @@
     <button (click)="toggleUebung()" > {{ buttonheader }} > </button>
   </div>
 </div>
-
 
 <div *ngIf="preview">
     <button (click)="deactivatePreview()" class="btn btn__preview">Vorschau beenden</button>
@@ -80,4 +84,3 @@
   <button (click)="activatePreview()" class="btn btn__preview">Vorschau</button>
   <button (click)="save()" class="btn btn__save">Speichern</button>
 </div>
-
