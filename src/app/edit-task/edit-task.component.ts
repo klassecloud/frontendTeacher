@@ -114,7 +114,7 @@ export class EditTaskComponent implements OnInit {
         }
         list.push(this.task);
     }else {
-        list[(list.indexOf(list.find(task => task.id === this.task.id)),1)] = this.task;
+        list[list.indexOf(list.find(task => task.id === this.task.id))] = this.task;
     }
 
     this.router.navigateByUrl('tasklist');
