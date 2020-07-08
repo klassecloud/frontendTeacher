@@ -1,7 +1,70 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../variables.scss';
 
 body {
   font-family: Roboto, Arial, sans-serif;
   margin: 0;
 }
 
+.menu-spacer{
+    flex: 1 1 auto;
+}
+
+.toolbar{
+    background: $darkblue !important;
+    color: white !important;
+}
+
+.spacer{
+    background:$green;
+    height:0.05rem;
+    vertical-align: bottom;
+}
+
+
+.sidenav{
+    background: $darkblue !important;
+    color: white !important;
+    width:16rem;
+}
+
+.sidenav--name{
+     text-align: center;
+     padding-top:2.5rem;
+     padding-bottom:1rem;
+}
+
+.sidenav--person{
+    text-align: center;
+    height:7rem;
+    padding-top:2.5rem;
+    vertical-align: middle;
+}
+
+.sidenav--item{
+    color:white !important;
+}
+
+.sidenav--item:hover{
+    background: $green !important;
+}
+
+.sidenav--item:target{
+    background: $grey !important;
+}
+
+.sidenav--text{
+    padding-left:2.5rem;
+}
+
+.sidenav--icon{
+    color:White
+}
+
+.sidenav--nested-icon{
+    margin-left:2.5rem;
+}
+
+.sidenav--nested-text{
+    font-size:x-small;
+}

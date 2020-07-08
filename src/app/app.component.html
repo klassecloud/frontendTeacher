@@ -1,9 +1,10 @@
 <mat-sidenav-container>
-    <mat-toolbar class="toolbar" fixedInViewport style="background:$green">
+    <mat-toolbar class="toolbar" fixedInViewport>
         <mat-toolbar-row>
             <h1>KLASSE.CLOUD</h1>
             <span class="menu-spacer"></span>
             <div>
+                <!-- TO-DO: implement search and notifications -->
                 <a mat-button [routerLink]="'/activities'"> <mat-icon>search</mat-icon> Search... </a>
                 <a mat-button [routerLink]="'/create-activity'"> <mat-icon>notifications</mat-icon> </a>
 
@@ -13,15 +14,19 @@
     </mat-toolbar>
     <!-- Tipp: To enable toggling sidenave, delete opened="true" and use event "sidenav.toggle()"-->
     <mat-sidenav color="Green" class="sidenav" fixedInViewport #sidenav mode="side" opened="true">
-        <mat-icon class="sidenav--icon">person</mat-icon>
-
-        Robert Münzer
+        <!-- Profile-picture here -->
+        <div class="sidenav--person"><mat-icon class="sidenav--icon sidenav--picture">person</mat-icon>
+            <!-- Name here -->
+            <div class="sidenav--name">Robert Münzer</div>
+        <div class="spacer"></div>
+        </div>
         <mat-nav-list>
-            <a mat-list-item [routerLink]="'/dashboard'" class="sidenav--text"> <mat-icon class="sidenav--icon">dashboard</mat-icon> Dashboard </a>
-            <a mat-list-item [routerLink]="'/tasklist'" class="sidenav--text"> <mat-icon class="sidenav--icon">checkbox</mat-icon> Aufgaben </a>
-            <a mat-list-item [routerLink]="'/newtask'" style="margin-left:30px" class="sidenav--text"> <mat-icon class="sidenav--icon">redo</mat-icon>Neue Aufgabe </a>
-            <a mat-list-item [routerLink]="'/subjects'" class="sidenav--text"> <mat-icon class="sidenav--icon">folder</mat-icon> Fächer </a>
-            <a mat-list-item [routerLink]="'/classes'" class="sidenav--text"> <mat-icon class="sidenav--icon">school</mat-icon> Klassen </a>
+            <!-- TO-DO: implement dashboard, subjects and classes -->
+            <a mat-list-item [routerLink]="'/dashboard'" class="sidenav--item"> <mat-icon class="sidenav--icon">dashboard</mat-icon> <div class="sidenav--text">Dashboard</div> </a>
+            <a mat-list-item [routerLink]="'/tasklist'" class="sidenav--item"> <mat-icon class="sidenav--icon">checkbox</mat-icon>  <div class="sidenav--text">Aufgaben</div> </a>
+            <a mat-list-item [routerLink]="'/newtask'" class="sidenav--item"> <mat-icon class="sidenav--icon sidenav--nested-icon">redo</mat-icon> <div class="sidenav--text sidenav--nested-text">Neue Aufgabe</div> </a>
+            <a mat-list-item [routerLink]="'/subjects'" class="sidenav--item"> <mat-icon class="sidenav--icon">folder</mat-icon>  <div class="sidenav--text">Fächer</div> </a>
+            <a mat-list-item [routerLink]="'/classes'" class="sidenav--item"> <mat-icon class="sidenav--icon">school</mat-icon>  <div class="sidenav--text">Klassen</div> </a>
 
         </mat-nav-list>
     </mat-sidenav>
