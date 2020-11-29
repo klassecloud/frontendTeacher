@@ -1,0 +1,71 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '../variables.scss';
+@import '../custom-theme.scss';
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.menu-spacer{
+    flex: 1 1 auto;
+}
+
+.toolbar{
+    background: mat-color($frontendTeacher-primary, 500) !important;
+    color: mat-contrast($frontendTeacher-primary, 500) !important;
+}
+
+.spacer{
+    border-bottom: 2px solid mat-color($frontendTeacher-accent, 500);
+    height:0.05rem;
+    vertical-align: bottom;
+}
+
+
+.sidenav{
+    background: mat-color($frontendTeacher-primary, 500) !important;
+        color: mat-contrast($frontendTeacher-primary, 500) !important;
+    width:16rem;
+}
+
+.sidenav--name{
+     text-align: center;
+     padding-top:2.5rem;
+     padding-bottom:1rem;
+}
+
+.sidenav--person{
+    text-align: center;
+    height:7rem;
+    padding-top:2.5rem;
+    vertical-align: middle;
+}
+
+.sidenav--item{
+    color: mat-contrast($frontendTeacher-primary, 500) !important;
+}
+
+.sidenav--item:hover{
+    background: mat-color($frontendTeacher-accent, 500) !important;
+}
+
+.sidenav--item:target{
+    background: $grey !important;
+}
+
+.sidenav--text{
+    padding-left:2.5rem;
+}
+
+.sidenav--icon{
+    color: mat-contrast($frontendTeacher-primary, 500) !important;
+}
+
+.sidenav--nested-icon{
+    margin-left:2.5rem;
+}
+
+.sidenav--nested-text{
+    font-size:x-small;
+}
